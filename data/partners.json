@@ -882,6 +882,126 @@
      "zh": "2026-11：因鍵盤進料不足，要求把 PO SP010308PAP 的 DK.RF41P.0EK（Primax 無線鍵盤，桌機）從 10 個改為 6 個。11/18 的 Critical Report 在途量已顯示 6。"
     }
    ]
+  },
+  "HON HAI": {
+   "facts": [
+    {
+     "label": {
+      "en": "Name in the OPO report",
+      "zh": "OPO 報表上的名稱"
+     },
+     "value": {
+      "en": "HON HAI (Hon Hai / Foxconn)",
+      "zh": "HON HAI（鴻海／Foxconn）"
+     }
+    },
+    {
+     "label": {
+      "en": "Weekly OPO report",
+      "zh": "每週 OPO 報表"
+     },
+     "value": {
+      "en": "Sends HON HAI_OPO_YYYYMMDD to every RO; the 13 November 2026 issue arrived on a Monday. Uses Acer's common OPO template: one row per PO line with status, remaining quantity, ETD, Meet CRD, parts status and shortage reason.",
+      "zh": "寄 HON HAI_OPO_YYYYMMDD 給各 RO；2026/11/13 這一期在週一寄到。使用 Acer 的共用 OPO 範本：一列一筆 PO line，含狀態、未出貨數量、ETD、Meet CRD、料況與缺料原因。"
+     }
+    }
+   ],
+   "notes": [
+    {
+     "en": "2026-11-13 OPO: AAP has no open PO lines; all 37 AAP lines are closed (1 cancelled).",
+     "zh": "2026-11-13 OPO：AAP 沒有未結的 PO line；37 筆都已結案（另有 1 筆取消）。"
+    }
+   ]
+  },
+  "GREAT-WALL": {
+   "facts": [
+    {
+     "label": {
+      "en": "Name in the OPO report",
+      "zh": "OPO 報表上的名稱"
+     },
+     "value": {
+      "en": "HUNAN GREAT-WALL",
+      "zh": "HUNAN GREAT-WALL（湖南長城）"
+     }
+    },
+    {
+     "label": {
+      "en": "Weekly OPO report",
+      "zh": "每週 OPO 報表"
+     },
+     "value": {
+      "en": "Sends HUNAN GREAT-WALL_OPO_YYYYMMDD to every RO each week, on Friday or the following Monday. Uses Acer's common OPO template: one row per PO line with status, remaining quantity, ETD, Meet CRD, parts status and shortage reason.",
+      "zh": "每週寄 HUNAN GREAT-WALL_OPO_YYYYMMDD 給各 RO，在週五或隔週一。使用 Acer 的共用 OPO 範本：一列一筆 PO line，含狀態、未出貨數量、ETD、Meet CRD、料況與缺料原因。"
+     }
+    }
+   ],
+   "notes": [
+    {
+     "en": "2026-11-16 OPO: AAP has 87 open PO lines (2,474 pcs remaining); 85 are overdue against CRD. 60 are in production; by type, 44 TnG-LTB, 38 TnG-Monthly and 5 Special support.",
+     "zh": "2026-11-16 OPO：AAP 有 87 筆未結 PO line（未出貨 2,474 件），其中 85 筆已逾 CRD。60 筆生產中；依類型為 TnG-LTB 44、TnG-Monthly 38、Special support 5。"
+    }
+   ]
+  },
+  "CLEVO": {
+   "facts": [
+    {
+     "label": {
+      "en": "Name in the OPO report",
+      "zh": "OPO 報表上的名稱"
+     },
+     "value": {
+      "en": "CLEVO CO.",
+      "zh": "CLEVO CO.（藍天）"
+     }
+    },
+    {
+     "label": {
+      "en": "Weekly OPO report",
+      "zh": "每週 OPO 報表"
+     },
+     "value": {
+      "en": "Sends the Clevo Weekly OPO report (CLEVO CO. _OPO_YYYYMMDD) to every RO, on no fixed weekday; in November 2026 Acer had to ask for the update. Uses Acer's common OPO template: one row per PO line with status, remaining quantity, ETD, Meet CRD, parts status and shortage reason.",
+      "zh": "寄 Clevo Weekly OPO report（CLEVO CO. _OPO_YYYYMMDD）給各 RO，沒有固定星期；2026 年 11 月曾由 Acer 催更新。使用 Acer 的共用 OPO 範本：一列一筆 PO line，含狀態、未出貨數量、ETD、Meet CRD、料況與缺料原因。"
+     }
+    }
+   ],
+   "notes": [
+    {
+     "en": "2026-11-17 OPO: AAP has 126 open PO lines (3,009 pcs remaining); 42 are overdue against CRD. 83 are new POs, 26 are in stock waiting to ship and 17 are waiting for production; 123 are TnG-Monthly.",
+     "zh": "2026-11-17 OPO：AAP 有 126 筆未結 PO line（未出貨 3,009 件），其中 42 筆已逾 CRD。New PO 83 筆、已入庫待出貨 26 筆、待排產 17 筆；123 筆是 TnG-Monthly。"
+    }
+   ]
+  },
+  "TCL": {
+   "facts": [
+    {
+     "label": {
+      "en": "Name in the OPO report",
+      "zh": "OPO 報表上的名稱"
+     },
+     "value": {
+      "en": "TCL MOKA (monitor parts)",
+      "zh": "TCL MOKA（顯示器料件）"
+     }
+    },
+    {
+     "label": {
+      "en": "Weekly OPO report",
+      "zh": "每週 OPO 報表"
+     },
+     "value": {
+      "en": "Sends the TCL MNT Weekly OPO Report_YYYYMMDD to every RO on Mondays, in its own format: PO lines with status, remaining quantity, ETD and parts status, plus FOC, FCST and B&S sheets.",
+      "zh": "每週一寄 TCL MNT Weekly OPO Report_YYYYMMDD 給各 RO，使用自己的格式：PO line 的狀態、未出貨數量、ETD 與料況，另有 FOC、FCST、B&S 工作表。"
+     }
+    }
+   ],
+   "notes": [
+    {
+     "en": "2026-11-16 OPO: AAP has 104 open PO lines (2,851 pcs remaining): 55 in stock, 45 new POs and 4 in production; by type, 57 LTB, 42 FCST-R and 5 Special support.",
+     "zh": "2026-11-16 OPO：AAP 有 104 筆未結 PO line（未出貨 2,851 件）：In stock 55、New PO 45、生產中 4；依類型為 LTB 57、FCST-R 42、Special support 5。"
+    }
+   ]
   }
  }
 }
