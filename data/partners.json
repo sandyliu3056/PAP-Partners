@@ -829,6 +829,75 @@
      "zh": "LTB 出貨採 9 個月排程（其他 ODM 為 12 個月），依 RO 分批。"
     }
    ]
+  },
+  "LENGDATECH": {
+   "fullName": "Lengda",
+   "facts": [
+    {
+     "label": {
+      "en": "Email domain",
+      "zh": "Email 網域"
+     },
+     "value": {
+      "en": "lengdatek.com",
+      "zh": "lengdatek.com"
+     }
+    },
+    {
+     "label": {
+      "en": "Demand report (DR)",
+      "zh": "需求報表（DR）"
+     },
+     "value": {
+      "en": "Sends the Acer DT DR report to every region around the 10th of each month.",
+      "zh": "每月 10 日左右寄出 Acer DT DR 報表給各區。"
+     }
+    },
+    {
+     "label": {
+      "en": "Deadlines",
+      "zh": "截止日"
+     },
+     "value": {
+      "en": "Confirm demand by the 17th; place the PO by the 24th.",
+      "zh": "17 日前確認需求，24 日前下 PO。"
+     }
+    },
+    {
+     "label": {
+      "en": "PO numbers",
+      "zh": "PO 編號"
+     },
+     "value": {
+      "en": "AAP POs look like SP010308PAP.",
+      "zh": "AAP 的 PO 編號格式如 SP010308PAP。"
+     }
+    }
+   ],
+   "notes": [
+    {
+     "en": "2026-06: LTB called for mainboards (LTB# LT202606160002); Acer replied there was no MB demand. Lengda now has no MB stock left, so MB requests can't be filled (confirmed 2026-08-07).",
+     "zh": "2026-06：主機板已做 LTB（LTB# LT202606160002），當時 Acer 回覆 MB 無需求。Lengda 已無 MB 庫存，之後的 MB 需求無法供應（2026-08-07 確認）。"
+    },
+    {
+     "en": "2026-08-14: AAP PO sent after the July DR.",
+     "zh": "2026-08-14：依 7 月 DR 寄出 AAP PO。"
+    },
+    {
+     "en": "2026-11: Asked to cut PO SP010308PAP for DK.RF41P.0EK (Primax RF keyboard, DT) from 10 to 6 pcs because their keyboard supply is short. The 18 Nov Critical Report already shows 6 on order.",
+     "zh": "2026-11：因鍵盤進料不足，要求把 PO SP010308PAP 的 DK.RF41P.0EK（Primax 無線鍵盤，桌機）從 10 個改為 6 個。11/18 的 Critical Report 在途量已顯示 6。"
+    }
+   ],
+   "contacts": [
+    {
+     "en": "Miaoling Zhou: DR reports and PO follow-up",
+     "zh": "Miaoling Zhou：DR 報表與 PO 跟進"
+    },
+    {
+     "en": "Ella Yang (cc on DR and PO mails)",
+     "zh": "Ella Yang（DR 與 PO 信件副本）"
+    }
+   ]
   }
  }
 }
