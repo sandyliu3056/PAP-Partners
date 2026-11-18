@@ -17,18 +17,22 @@
 }
 *{box-sizing:border-box}
 body{margin:0;background:#fff;font-family:"Patrick Hand","Segoe UI",system-ui,sans-serif;color:var(--ink);font-size:17px;line-height:1.35}
+html[lang="zh-Hant"] body{font-family:"Patrick Hand","Microsoft JhengHei","PingFang TC","Noto Sans TC",system-ui,sans-serif;font-size:16px;line-height:1.5}
 header{background:var(--brown);padding:12px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;position:sticky;top:0;z-index:5}
 .brand{font-size:28px;letter-spacing:.2em;color:var(--amber);white-space:nowrap}
 .pill{border:1.2px solid var(--amber);color:var(--amber);border-radius:4px;padding:1px 7px;font-size:13px}
 header .sp{flex:1}
 #q{font:inherit;font-size:16px;padding:4px 10px;border-radius:5px;border:1.3px solid var(--amber);background:#fff;min-width:240px}
+.lang{display:flex;border:1.2px solid var(--amber);border-radius:5px;overflow:hidden}
+.lang button{font:inherit;font-size:14px;background:none;border:0;color:var(--amber);padding:2px 10px;cursor:pointer}
+.lang button.on{background:var(--amber);color:var(--brown)}
 main{max-width:1240px;margin:0 auto;padding:18px 22px 40px}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
 .tab{cursor:pointer;background:var(--paper);border:1.3px solid var(--brown);border-radius:5px;padding:2px 11px;box-shadow:0 1.6px 0 var(--brown);color:var(--brown);font:inherit;font-size:15px}
 .tab.on{background:var(--amber)}
 .tab b{font-weight:400;color:var(--muted);margin-left:4px}
 .tab.on b{color:var(--brown)}
-.intro{color:var(--muted);font-size:15px;margin:-4px 0 14px}
+.intro{color:var(--muted);font-size:15px;margin:-4px 0 14px;max-width:900px}
 .sortbar{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--muted);margin-bottom:12px}
 .sortbar select{font:inherit;font-size:14px;border:1.2px solid var(--line);border-radius:4px;padding:1px 4px;color:var(--ink)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:13px}
@@ -48,7 +52,6 @@ main{max-width:1240px;margin:0 auto;padding:18px 22px 40px}
 .legend{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:12.5px;color:var(--muted)}
 .legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:3px;vertical-align:-1px;border:1px solid rgba(0,0,0,.15)}
 .empty{color:var(--muted);padding:30px 0;text-align:center}
-/* detail */
 #veil{position:fixed;inset:0;background:rgba(40,20,8,.35);display:none;z-index:9}
 #veil.on{display:block}
 #detail{position:fixed;top:0;right:0;height:100%;width:min(560px,100%);background:#fff;border-left:2px solid var(--brown);z-index:10;transform:translateX(102%);transition:transform .2s;overflow:auto;padding:18px 22px 30px}
@@ -56,6 +59,9 @@ main{max-width:1240px;margin:0 auto;padding:18px 22px 40px}
 #detail .x{float:right;cursor:pointer;font:inherit;background:var(--amber);border:1.3px solid var(--brown);border-radius:5px;padding:0 9px;box-shadow:0 1.6px 0 var(--brown)}
 #detail h2{font-weight:400;font-size:28px;margin:0 0 2px;color:var(--brown)}
 #detail .sub{color:var(--muted);margin-bottom:10px}
+.what{background:var(--soft);border:1.2px solid var(--line);border-radius:6px;padding:8px 12px;margin:8px 0}
+.what p{margin:0 0 6px}.what p:last-child{margin:0}
+.what .h{color:var(--gold);font-size:14px;display:block}
 .sec{margin:14px 0 6px;font-size:18px;color:var(--brown);border-bottom:1.2px dashed var(--line);padding-bottom:3px}
 table{width:100%;border-collapse:collapse;font-size:15px}
 td{padding:3px 4px;border-bottom:1px solid #F1E3C4;vertical-align:top}
@@ -71,19 +77,13 @@ footer{max-width:1240px;margin:0 auto;padding:0 22px 30px;color:var(--muted);fon
   <div class="brand">PAP PARTNERS</div>
   <span class="pill" id="count">…</span>
   <div class="sp"></div>
-  <input id="q" type="search" placeholder="Search name, code, product line, NS…" autocomplete="off">
+  <input id="q" type="search" autocomplete="off">
+  <div class="lang" id="lang"><button data-l="en">EN</button><button data-l="zh">中文</button></div>
 </header>
 <main>
   <div class="tabs" id="tabs"></div>
   <p class="intro" id="intro"></p>
-  <div class="sortbar" id="sortbar">Sort by
-    <select id="sort">
-      <option value="parts">Part numbers</option>
-      <option value="demand26w">Demand, last 26 weeks</option>
-      <option value="partsWithGlsM0">Parts with a GLS M0 suggestion</option>
-      <option value="name">Name</option>
-    </select>
-  </div>
+  <div class="sortbar" id="sortbar"><span id="sortLabel"></span><select id="sort"></select></div>
   <div class="grid" id="grid"></div>
 </main>
 <footer id="foot"></footer>
@@ -91,124 +91,210 @@ footer{max-width:1240px;margin:0 auto;padding:0 22px 30px;color:var(--muted);fon
 <aside id="detail" aria-hidden="true"></aside>
 
 <script>
-const TYPES = {
-  all:       {label: 'All', intro: 'Everyone PAP works with: the ODMs and suppliers we buy parts from, the logistics partners that move them, and the service network that uses them.'},
-  odm:       {label: 'ODM & suppliers', intro: 'Every supplier named in the ODM column of the AAP Critical Report. Codes such as QUANTA/NB and QUANTA/NB-TH are grouped under one company; a part shared by several suppliers counts for each.'},
-  logistics: {label: 'Logistics & hub', intro: 'The hub and the partners that move parts from the ODMs to the NS.'},
-  service:   {label: 'Service network', intro: 'Each country\'s service company (NS) and the authorised service providers (ASP) who use the parts.'},
-  internal:  {label: 'Acer & local sourcing', intro: 'Sourcing codes in the ODM column that are not outside suppliers.'}
+/* ---------- words: one full set per language, never mixed ---------- */
+const UI = {
+  en: {
+    search: 'Search name, code, product line, NS…', of: 'of', sortBy: 'Sort by', nothing: 'Nothing matches.', close: 'Close',
+    sorts: {parts: 'Part numbers', demand26w: 'Demand, last 26 weeks', partsWithGlsM0: 'Parts with a GLS M0 suggestion', name: 'Name'},
+    types: {
+      all: ['All', 'Everyone PAP works with: the ODMs and suppliers we buy parts from, the hub and partners that move the parts, and the service network that uses them.'],
+      odm: ['ODM & suppliers', 'The companies PAP buys service parts from. Every supplier in the ODM column of the AAP Critical Report is here; codes such as QUANTA/NB and QUANTA/NB-TH are grouped under one company, and a part shared by several suppliers counts for each.'],
+      logistics: ['Logistics & hub', 'The partners that move parts from the ODMs to each NS.'],
+      service: ['Service network', 'The service companies (NS) in each country and the authorised service providers (ASP) who use the parts to repair Acer products.'],
+      internal: ['Acer & local sourcing', 'Codes in the ODM column that are not outside suppliers.']
+    },
+    parts: 'parts', projects: 'projects', demand: 'demand, 26 wks',
+    whatTheyDo: 'What they do for PAP', company: 'The company',
+    inReport: 'In the Critical Report', partNumbers: 'Part numbers', shared: n => ` (${n} shared with other suppliers)`,
+    projectsL: 'Projects', demandL: 'Demand, last 26 weeks', glsL: 'Parts with a GLS M0 suggestion', stockL: 'On Hand New · On Order',
+    stages: 'Lifecycle stage of its parts', codes: 'Codes in the ODM column', lines: 'Main product lines (PC7)', cats: 'Main part categories (PC8)',
+    facts: 'Facts', notes: 'Notes', contacts: 'Contacts', source: 'Source', report: 'AAP Critical Report',
+    foot: m => `Supplier figures: ${m.source} (${fmt(m.rows)} part numbers, ${fmt(m.rowsWithOdm)} with an ODM). Logistics and service entries: Acer Guide. Company descriptions: the source shown on each page.`,
+    role: (fam, cat) => `Supplies parts for Acer ${fam}${cat ? `, mainly ${cat}` : ''}.`,
+    list: a => a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1]
+  },
+  zh: {
+    search: '搜尋名稱、代碼、產品線、NS…', of: '／', sortBy: '排序', nothing: '找不到符合的項目。', close: '關閉',
+    sorts: {parts: '料號數', demand26w: '近 26 週需求', partsWithGlsM0: '有 GLS M0 建議的料號數', name: '名稱'},
+    types: {
+      all: ['全部', 'PAP 所有的合作對象：供應零件的 ODM 與供應商、負責運送零件的 hub 與物流夥伴，以及使用零件的服務網路。'],
+      odm: ['ODM 與供應商', 'PAP 採購維修零件的對象。收錄 AAP Critical Report 中 ODM 欄出現的所有供應商；同一家公司的不同代碼（如 QUANTA/NB、QUANTA/NB-TH）合併計算，多家共用的料號會分別計入每一家。'],
+      logistics: ['物流與 hub', '把零件從 ODM 送到各 NS 的合作夥伴。'],
+      service: ['服務網路', '各國的服務公司（NS）與授權維修中心（ASP），使用零件維修 Acer 產品。'],
+      internal: ['Acer 與本地採購', 'ODM 欄中出現、但不是外部供應商的代碼。']
+    },
+    parts: '料號', projects: '機種', demand: '近 26 週需求',
+    whatTheyDo: '在 PAP 的角色', company: '公司簡介',
+    inReport: 'Critical Report 數據', partNumbers: '料號數', shared: n => `（其中 ${n} 個與其他供應商共用）`,
+    projectsL: '機種數', demandL: '近 26 週需求', glsL: '有 GLS M0 建議的料號數', stockL: 'On Hand New · On Order',
+    stages: '料件生命週期階段', codes: 'ODM 欄代碼', lines: '主要產品線（PC7）', cats: '主要料件類別（PC8）',
+    facts: '基本資料', notes: '備註', contacts: '聯絡窗口', source: '資料來源', report: 'AAP Critical Report',
+    foot: m => `供應商數據：${m.source}（共 ${fmt(m.rows)} 個料號，其中 ${fmt(m.rowsWithOdm)} 個有 ODM）。物流與服務網路：Acer Guide。公司簡介：來源標示於各頁。`,
+    role: (fam, cat) => `供應 Acer ${fam}${/[A-Za-z]$/.test(fam) ? ' ' : ''}的零件${cat ? `，主要是${cat}` : ''}。`,
+    list: a => a.join('、')
+  }
+};
+const FAMILIES = [ // product line → product family; first match wins
+  [/Chromebook/, 'Chromebooks', 'Chromebook'], [/Tablet|Handheld|Smart HH|Rugged/, 'tablets and handhelds', '平板與手持裝置'],
+  [/NB|Notebook/, 'notebooks', '筆電'], [/Desktop|DT/, 'desktops', '桌機'], [/AIO/, 'all-in-ones', 'AIO 一體機'],
+  [/Display/, 'monitors', '螢幕'], [/Projector|PROJECTOR/, 'projectors', '投影機'], [/Server/, 'servers', '伺服器'],
+  [/TV/, 'TVs', '電視'], [/Gadget/, 'gadgets', '周邊小物']
+];
+const CATS = { // PC8 category → [English in a sentence, Chinese]
+  'Accessory/Option': ['accessories', '配件'], 'Adapter': ['adapters', '變壓器'], 'Battery': ['batteries', '電池'], 'CPU': ['CPUs', 'CPU'],
+  'Cable': ['cables', '線材'], 'Camera': ['cameras', '相機模組'], 'Chassis/Housing': ['chassis', '機殼'], 'Fan/Heat Sink/Thermal': ['fans and thermal parts', '風扇與散熱件'],
+  'Front/Back cover': ['front and back covers', '前後蓋'], 'HDD': ['hard drives', '硬碟'], 'KB Assembly': ['keyboard assemblies', '鍵盤組件'], 'Keyboard': ['keyboards', '鍵盤'],
+  'LCD/TP': ['LCD and touch panels', '面板與觸控'], 'LCM Assembly': ['LCD modules', '面板模組'], 'Lower/Bottom case': ['bottom cases', '底殼'], 'Mainboard': ['mainboards', '主機板'],
+  'Memory': ['memory', '記憶體'], 'Metal/Plastic': ['metal and plastic parts', '金屬與塑膠件'], 'Module/Card/Board': ['modules and boards', '模組與板卡'], 'ODD': ['optical drives', '光碟機'],
+  'PSU': ['power supplies', '電源供應器'], 'Point device': ['pointing devices', '指向裝置'], 'SSD': ['SSDs', 'SSD'], 'WLAN': ['WLAN cards', '無線網卡'],
+  'Front bezel/Bezel Assy': ['bezels', '前框'], 'Upper case': ['upper cases', '上蓋'], 'FG': ['finished units', '整機'], 'Component': ['components', '元件'],
+  'Others': ['other parts', '其他'], 'Local PN': ['local parts', '本地料號']
 };
 const STAGES = [['CURRENT','#6E8B3D'],['AML','#A9C46C'],['PPB1','#FFB71B'],['PPB2','#E08E2B'],['LTB','#B5502F'],['EOL','#7A4A3A'],['EOS','#5E88A8'],['OTHER','#CFC3B3']];
+
 const fmt = n => Number(n || 0).toLocaleString('en-US');
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-let ALL = [], META = {}, tab = 'all';
+let L = 'en', ALL = [], META = {}, PROFILES = {}, tab = 'all';
+const T = () => UI[L];
+const tx = v => v == null ? '' : (typeof v === 'string' ? v : (v[L] ?? v.en ?? ''));
+const isSupplier = p => p.type === 'odm' || p.type === 'internal';
+const catName = c => L === 'zh' && CATS[c] ? CATS[c][1] : c;
+
+/* ---------- what a supplier does, from its product lines and categories ---------- */
+function role(p){
+  if (!isSupplier(p)) return tx(p.role);
+  const fam = {};
+  for (const [pl, n] of Object.entries(p.productLines || {})) {
+    const f = FAMILIES.find(([re]) => re.test(pl)); if (f) fam[f[1]] = (fam[f[1]] || 0) + n;
+  }
+  const fams = Object.entries(fam).sort((a, b) => b[1] - a[1]).slice(0, 3)
+    .map(([k]) => { const f = FAMILIES.find(x => x[1] === k); return L === 'zh' ? f[2] : f[1]; });
+  const cats = Object.keys(p.categories || {}).filter(c => c !== 'Others').slice(0, 3).map(c => (CATS[c] || [c, c])[L === 'zh' ? 1 : 0]);
+  if (!fams.length) return '';
+  return T().role(T().list(fams), cats.length ? T().list(cats) : '');
+}
 
 function stageBuckets(st){
   const b = {}; let t = 0;
   for (const [k, v] of Object.entries(st || {})) { const key = STAGES.some(s => s[0] === k) ? k : 'OTHER'; b[key] = (b[key] || 0) + v; t += v; }
   return {b, t};
 }
-function stageBar(st){
-  const {b, t} = stageBuckets(st); if (!t) return '';
-  return '<div class="bar" title="Lifecycle stage of its parts">' + STAGES.filter(s => b[s[0]]).map(s => `<i style="width:${b[s[0]]/t*100}%;background:${s[1]}" title="${s[0]} ${fmt(b[s[0]])}"></i>`).join('') + '</div>';
-}
-function stageLegend(st){
-  const {b} = stageBuckets(st);
-  return '<div class="legend">' + STAGES.filter(s => b[s[0]]).map(s => `<span><i style="background:${s[1]}"></i>${s[0]} ${fmt(b[s[0]])}</span>`).join('') + '</div>';
-}
-const short = pl => pl.replace(/^Acer_Service_/, '').replace(/^Acer_/, '').replace(/_/g, ' ');
+const stageBar = st => { const {b, t} = stageBuckets(st); if (!t) return '';
+  return '<div class="bar">' + STAGES.filter(s => b[s[0]]).map(s => `<i style="width:${b[s[0]]/t*100}%;background:${s[1]}" title="${s[0]} ${fmt(b[s[0]])}"></i>`).join('') + '</div>'; };
+const stageLegend = st => { const {b} = stageBuckets(st);
+  return '<div class="legend">' + STAGES.filter(s => b[s[0]]).map(s => `<span><i style="background:${s[1]}"></i>${s[0]} ${fmt(b[s[0]])}</span>`).join('') + '</div>'; };
 
+/* ---------- cards ---------- */
 function card(p){
-  const kind = `<span class="kind k-${p.type}">${TYPES[p.type].label}</span>`;
-  if (p.type === 'odm' || p.type === 'internal') {
-    const codes = Object.keys(p.codes).slice(0, 4).map(c => `<span class="chip">${esc(c)}</span>`).join('') + (Object.keys(p.codes).length > 4 ? `<span class="chip">+${Object.keys(p.codes).length - 4}</span>` : '');
-    const pls = [...new Set(Object.keys(p.productLines).map(short))].slice(0, 3).join(' · ');
-    return `<div class="card" data-id="${p.id}">${kind}<h3>${esc(p.name)}${p.fullName ? `<small>${esc(p.fullName)}</small>` : ''}</h3>
-      <div class="chips">${codes}</div>
-      <div class="stats"><span><b>${fmt(p.parts)}</b>parts</span><span><b>${fmt(p.projects)}</b>projects</span><span><b>${fmt(p.demand26w)}</b>demand, 26 wks</span></div>
-      <div class="sum">${esc(pls)}</div>${stageBar(p.stages)}</div>`;
+  const kind = `<span class="kind k-${p.type}">${T().types[p.type][0]}</span>`;
+  const title = `<h3>${esc(p.name)}${p.fullName ? `<small>${esc(tx(p.fullName))}</small>` : ''}</h3>`;
+  if (isSupplier(p)) {
+    const ks = Object.keys(p.codes);
+    const codes = ks.slice(0, 4).map(c => `<span class="chip">${esc(c)}</span>`).join('') + (ks.length > 4 ? `<span class="chip">+${ks.length - 4}</span>` : '');
+    return `<div class="card" data-id="${p.id}">${kind}${title}<div class="chips">${codes}</div>
+      <div class="stats"><span><b>${fmt(p.parts)}</b>${T().parts}</span><span><b>${fmt(p.projects)}</b>${T().projects}</span><span><b>${fmt(p.demand26w)}</b>${T().demand}</span></div>
+      <div class="sum">${esc(role(p))}</div>${stageBar(p.stages)}</div>`;
   }
-  return `<div class="card" data-id="${p.id}">${kind}<h3>${esc(p.name)}${p.fullName ? `<small>${esc(p.fullName)}</small>` : ''}</h3>
-    <div class="chips">${(p.tags || []).map(t => `<span class="chip">${esc(t)}</span>`).join('')}</div>
-    <div class="sum">${esc(p.summary)}</div></div>`;
+  return `<div class="card" data-id="${p.id}">${kind}${title}
+    <div class="chips">${(p.tags || []).map(t => `<span class="chip">${esc(tx(t))}</span>`).join('')}</div>
+    <div class="sum">${esc(tx(p.summary))}</div></div>`;
 }
 
-function haystack(p){
-  return [p.name, p.fullName, p.summary, ...(p.tags || []), ...Object.keys(p.codes || {}), ...Object.keys(p.productLines || {}), ...Object.keys(p.categories || {}),
-          ...(p.facts || []).map(f => f.value), ...(p.notes || [])].join(' ').toLowerCase();
+function haystack(p){ // search matches either language
+  const both = v => v == null ? [] : (typeof v === 'string' ? [v] : [v.en, v.zh]);
+  const prof = PROFILES[p.name] || {};
+  return [p.name, ...both(p.fullName), ...both(p.summary), ...both(p.role), prof.en, prof.zh, ...(p.tags || []).flatMap(both),
+          ...Object.keys(p.codes || {}), ...Object.keys(p.productLines || {}), ...Object.keys(p.categories || {}).flatMap(c => [c, ...(CATS[c] || [])]),
+          ...(p.facts || []).flatMap(f => both(f.value)), ...(p.notes || []).flatMap(both)].join(' ').toLowerCase();
 }
 
 function render(){
   const q = document.getElementById('q').value.trim().toLowerCase();
   const key = document.getElementById('sort').value;
-  let list = ALL.filter(p => (tab === 'all' || p.type === tab) && (!q || p._h.includes(q)));
-  const supplierView = tab === 'odm' || tab === 'internal';
+  const sv = tab === 'odm' || tab === 'internal';
+  const order = Object.keys(T().types);
+  const list = ALL.filter(p => (tab === 'all' || p.type === tab) && (!q || p._h.includes(q)));
   list.sort((a, b) => {
-    if (key === 'name' || !supplierView) {
-      if (!supplierView && a.type !== b.type) return Object.keys(TYPES).indexOf(a.type) - Object.keys(TYPES).indexOf(b.type);
-      if (!supplierView && (a.parts || b.parts)) return (b.parts || 0) - (a.parts || 0);
-      return a.name.localeCompare(b.name);
-    }
-    return (b[key] || 0) - (a[key] || 0);
+    if (!sv && a.type !== b.type) return order.indexOf(a.type) - order.indexOf(b.type);
+    if (sv && key !== 'name') return (b[key] || 0) - (a[key] || 0);
+    if (key !== 'name' && (a.parts || b.parts)) return (b.parts || 0) - (a.parts || 0);
+    return a.name.localeCompare(b.name);
   });
-  document.getElementById('sortbar').style.display = supplierView ? 'flex' : 'none';
-  document.getElementById('intro').textContent = TYPES[tab].intro;
-  document.getElementById('grid').innerHTML = list.length ? list.map(card).join('') : '<div class="empty">Nothing matches.</div>';
-  document.getElementById('count').textContent = `${list.length} of ${ALL.length}`;
+  document.getElementById('sortbar').style.display = sv ? 'flex' : 'none';
+  document.getElementById('intro').textContent = T().types[tab][1];
+  document.getElementById('grid').innerHTML = list.length ? list.map(card).join('') : `<div class="empty">${T().nothing}</div>`;
+  document.getElementById('count').textContent = `${list.length} ${T().of} ${ALL.length}`;
 }
 
-function tabs(){
-  document.getElementById('tabs').innerHTML = Object.entries(TYPES).map(([k, t]) =>
-    `<button class="tab${k === tab ? ' on' : ''}" data-t="${k}">${t.label}<b>${k === 'all' ? ALL.length : ALL.filter(p => p.type === k).length}</b></button>`).join('');
+function chrome(){
+  document.documentElement.lang = L === 'zh' ? 'zh-Hant' : 'en';
+  document.querySelectorAll('#lang button').forEach(b => b.classList.toggle('on', b.dataset.l === L));
+  document.getElementById('q').placeholder = T().search;
+  document.getElementById('sortLabel').textContent = T().sortBy;
+  const s = document.getElementById('sort'), cur = s.value || 'parts';
+  s.innerHTML = Object.entries(T().sorts).map(([k, v]) => `<option value="${k}">${v}</option>`).join(''); s.value = cur;
+  document.getElementById('tabs').innerHTML = Object.entries(T().types).map(([k, t]) =>
+    `<button class="tab${k === tab ? ' on' : ''}" data-t="${k}">${t[0]}<b>${k === 'all' ? ALL.length : ALL.filter(p => p.type === k).length}</b></button>`).join('');
+  if (META.source) document.getElementById('foot').textContent = T().foot(META);
 }
 
-function table(obj, label){
-  const rows = Object.entries(obj || {});
-  if (!rows.length) return '';
-  return `<div class="sec">${label}</div><table>${rows.map(([k, v]) => `<tr><td>${esc(k)}</td><td class="n">${fmt(v)}</td></tr>`).join('')}</table>`;
-}
+/* ---------- detail ---------- */
+const kv = (obj, label, name = k => k) => { const r = Object.entries(obj || {}); if (!r.length) return '';
+  return `<div class="sec">${label}</div><table>${r.map(([k, v]) => `<tr><td>${esc(name(k))}</td><td class="n">${fmt(v)}</td></tr>`).join('')}</table>`; };
 
 function open(id){
   const p = ALL.find(x => x.id === id); if (!p) return;
-  let h = `<button class="x" onclick="closeD()">Close</button><h2>${esc(p.name)}</h2><div class="sub">${esc(p.fullName || '')}${p.fullName ? ' · ' : ''}${TYPES[p.type].label}</div>`;
-  if (p.summary) h += `<p>${esc(p.summary)}</p>`;
-  if (p.type === 'odm' || p.type === 'internal') {
-    h += `<div class="sec">In the Critical Report</div><table>
-      <tr><td class="l">Part numbers</td><td>${fmt(p.parts)}${p.sharedParts ? ` (${fmt(p.sharedParts)} shared with other suppliers)` : ''}</td></tr>
-      <tr><td class="l">Projects</td><td>${fmt(p.projects)}</td></tr>
-      <tr><td class="l">Demand, last 26 weeks</td><td>${fmt(p.demand26w)}</td></tr>
-      <tr><td class="l">Parts with a GLS M0 suggestion</td><td>${fmt(p.partsWithGlsM0)}</td></tr>
-      <tr><td class="l">On Hand New · On Order</td><td>${fmt(p.onHandNew)} · ${fmt(p.onOrder)}</td></tr></table>`;
-    h += `<div class="sec">Lifecycle stage of its parts</div>${stageBar(p.stages)}<div style="margin-top:6px">${stageLegend(p.stages)}</div>`;
-    h += table(p.codes, 'Codes in the ODM column') + table(p.productLines, 'Main product lines (PC7)') + table(p.categories, 'Main part categories (PC8)');
+  const t = T(), prof = PROFILES[p.name];
+  let h = `<button class="x" onclick="closeD()">${t.close}</button><h2>${esc(p.name)}</h2>
+    <div class="sub">${p.fullName ? esc(tx(p.fullName)) + ' · ' : ''}${t.types[p.type][0]}</div>`;
+  const what = role(p), sum = isSupplier(p) ? '' : tx(p.summary);
+  h += `<div class="what">${what ? `<p><span class="h">${t.whatTheyDo}</span>${esc(what)}</p>` : ''}${prof ? `<p><span class="h">${t.company}</span>${esc(prof[L] || prof.en)}</p>` : ''}${sum ? `<p>${esc(sum)}</p>` : ''}</div>`;
+  if (isSupplier(p)) {
+    h += `<div class="sec">${t.inReport}</div><table>
+      <tr><td class="l">${t.partNumbers}</td><td>${fmt(p.parts)}${p.sharedParts ? t.shared(fmt(p.sharedParts)) : ''}</td></tr>
+      <tr><td class="l">${t.projectsL}</td><td>${fmt(p.projects)}</td></tr>
+      <tr><td class="l">${t.demandL}</td><td>${fmt(p.demand26w)}</td></tr>
+      <tr><td class="l">${t.glsL}</td><td>${fmt(p.partsWithGlsM0)}</td></tr>
+      <tr><td class="l">${t.stockL}</td><td>${fmt(p.onHandNew)} · ${fmt(p.onOrder)}</td></tr></table>`;
+    h += `<div class="sec">${t.stages}</div>${stageBar(p.stages)}<div style="margin-top:6px">${stageLegend(p.stages)}</div>`;
+    h += kv(p.codes, t.codes) + kv(p.productLines, t.lines) + kv(p.categories, t.cats, catName);
   }
-  if (p.facts && p.facts.length) h += `<div class="sec">Facts</div><table>${p.facts.map(f => `<tr><td class="l">${esc(f.label)}</td><td>${esc(f.value)}</td></tr>`).join('')}</table>`;
-  if (p.notes && p.notes.length) h += `<div class="sec">Notes</div><ul class="notes">${p.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul>`;
-  if (p.contacts && p.contacts.length) h += `<div class="sec">Contacts</div><ul class="notes">${p.contacts.map(n => `<li>${esc(n)}</li>`).join('')}</ul>`;
-  h += `<div class="src">Source: ${esc(p.source || '')}</div>`;
-  const d = document.getElementById('detail'); d.innerHTML = h; d.classList.add('on'); d.setAttribute('aria-hidden', 'false');
+  if (p.facts && p.facts.length) h += `<div class="sec">${t.facts}</div><table>${p.facts.map(f => `<tr><td class="l">${esc(tx(f.label))}</td><td>${esc(tx(f.value))}</td></tr>`).join('')}</table>`;
+  if (p.notes && p.notes.length) h += `<div class="sec">${t.notes}</div><ul class="notes">${p.notes.map(n => `<li>${esc(tx(n))}</li>`).join('')}</ul>`;
+  if (p.contacts && p.contacts.length) h += `<div class="sec">${t.contacts}</div><ul class="notes">${p.contacts.map(n => `<li>${esc(tx(n))}</li>`).join('')}</ul>`;
+  const date = META.reportDate ? ' ' + META.reportDate.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3') : '';
+  const srcs = [isSupplier(p) ? t.report + date : p.source, prof && prof.source].filter((v, i, a) => v && a.indexOf(v) === i);
+  h += `<div class="src">${t.source}: ${esc(srcs.join(' · '))}</div>`;
+  const d = document.getElementById('detail'); d.innerHTML = h; d.classList.add('on'); d.setAttribute('aria-hidden', 'false'); d.dataset.id = id;
   document.getElementById('veil').classList.add('on');
-  history.replaceState(null, '', '#' + id);
+  history.replaceState(null, '', location.pathname + location.search + '#' + id);
 }
 function closeD(){
-  document.getElementById('detail').classList.remove('on'); document.getElementById('veil').classList.remove('on');
-  history.replaceState(null, '', location.pathname);
+  const d = document.getElementById('detail'); d.classList.remove('on'); delete d.dataset.id;
+  document.getElementById('veil').classList.remove('on');
+  history.replaceState(null, '', location.pathname + location.search);
 }
 
-Promise.all([fetch('data/odm.json').then(r => r.json()), fetch('data/partners.json').then(r => r.json())]).then(([odm, man]) => {
-  META = odm.meta;
-  const d = META.reportDate ? `${META.reportDate.slice(0,4)}-${META.reportDate.slice(4,6)}-${META.reportDate.slice(6)}` : '';
-  const sup = odm.suppliers.map(s => {
-    const extra = man.supplierNotes[s.name] || {};
-    return {...s, fullName: extra.fullName, notes: extra.notes || [], contacts: extra.contacts || [], source: `AAP Critical Report ${d}`};
-  });
-  ALL = [...sup, ...man.partners].map(p => ({...p, _h: haystack(p)}));
-  document.getElementById('foot').textContent = `Supplier figures: ${META.source} (${fmt(META.rows)} part numbers, ${fmt(META.rowsWithOdm)} with an ODM). Logistics and service entries: Acer Guide.`;
-  tabs(); render();
-  if (location.hash) open(location.hash.slice(1));
-});
+function setLang(l){
+  L = l === 'zh' ? 'zh' : 'en';
+  try { localStorage.setItem('lang', L); } catch (e) {}
+  const u = new URL(location.href); if (L === 'zh') u.searchParams.set('lang', 'zh'); else u.searchParams.delete('lang');
+  history.replaceState(null, '', u.pathname + u.search + u.hash);
+  chrome(); render();
+  const d = document.getElementById('detail'); if (d.dataset.id) open(d.dataset.id);
+}
 
-document.getElementById('tabs').addEventListener('click', e => { const b = e.target.closest('.tab'); if (!b) return; tab = b.dataset.t; tabs(); render(); });
+/* ---------- start ---------- */
+(() => { const q = new URLSearchParams(location.search).get('lang'); let s = null; try { s = localStorage.getItem('lang'); } catch (e) {} L = (q || s) === 'zh' ? 'zh' : 'en'; })();
+Promise.all(['data/odm.json', 'data/partners.json', 'data/profiles.json'].map(u => fetch(u).then(r => r.json()))).then(([odm, man, prof]) => {
+  META = odm.meta; PROFILES = prof;
+  const sup = odm.suppliers.map(s => ({...s, ...(man.supplierNotes[s.name] || {})}));
+  ALL = [...sup, ...man.partners].map(p => ({...p, _h: haystack(p)}));
+  chrome(); render();
+  if (location.hash) open(decodeURIComponent(location.hash.slice(1)));
+});
+document.getElementById('lang').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setLang(b.dataset.l); });
+document.getElementById('tabs').addEventListener('click', e => { const b = e.target.closest('.tab'); if (!b) return; tab = b.dataset.t; chrome(); render(); });
 document.getElementById('grid').addEventListener('click', e => { const c = e.target.closest('.card'); if (c) open(c.dataset.id); });
 document.getElementById('q').addEventListener('input', render);
 document.getElementById('sort').addEventListener('change', render);

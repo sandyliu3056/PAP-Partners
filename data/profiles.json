@@ -1,0 +1,167 @@
+{
+ "QUANTA": {
+  "en": "Taiwanese ODM founded in 1988 and the largest computer ODM in the world; it also builds cloud servers and networking gear.",
+  "zh": "台灣代工廠（ODM），1988 年成立，全球最大的電腦代工廠，也做雲端伺服器與網通產品。",
+  "source": "Quanta Computer company profile"
+ },
+ "COMPAL": {
+  "en": "Taiwanese ODM based in Neihu, Taipei. Builds notebooks, monitors, tablets and TVs for brands including Acer.",
+  "zh": "台灣代工廠（ODM），總部在台北內湖，為 Acer 等品牌生產筆電、螢幕、平板和電視。",
+  "source": "Compal Electronics (Wikipedia)"
+ },
+ "WISTRON": {
+  "en": "Taiwanese ODM, spun off from Acer as its manufacturing arm. Builds notebooks, desktops, servers and professional displays.",
+  "zh": "台灣代工廠（ODM），原為 Acer 的製造部門後獨立出來，生產筆電、桌機、伺服器與專業顯示器。",
+  "source": "Wistron (Wikipedia, Intel partner page)"
+ },
+ "INVENTEC": {
+  "en": "Taiwanese ODM founded in 1975 and based in Taipei. Builds notebooks, servers and data-centre hardware.",
+  "zh": "台灣代工廠（ODM），1975 年成立，總部在台北，生產筆電、伺服器與資料中心設備。",
+  "source": "Inventec company profile"
+ },
+ "BMORN": {
+  "en": "Chinese high-tech company in Shenzhen that develops, makes and sells electronic products.",
+  "zh": "深圳的高新技術企業，從事電子產品的研發、製造與銷售。",
+  "source": "Intel partner page"
+ },
+ "GUANGXI CENTURY": {
+  "en": "Monitor maker in Nanning, Guangxi; its shipping records include monitors sent to Acer America.",
+  "zh": "位於廣西南寧的螢幕製造商，出貨紀錄中有出給 Acer America 的螢幕。",
+  "source": "Panjiva shipping records"
+ },
+ "TPV": {
+  "en": "Display maker that builds monitors and TVs, including the AOC and Philips brands.",
+  "zh": "顯示器製造商，生產螢幕和電視，旗下包括 AOC 與 Philips 品牌。",
+  "source": "Public company information"
+ },
+ "QISDA": {
+  "en": "Taiwanese maker of displays, projectors and other electronics, part of the BenQ group.",
+  "zh": "台灣的顯示器、投影機等電子產品製造商，屬於 BenQ 集團。",
+  "source": "Public company information"
+ },
+ "TCL": {
+  "en": "Chinese electronics group that makes TVs, displays and panels.",
+  "zh": "中國電子集團，生產電視、顯示器與面板。",
+  "source": "Public company information"
+ },
+ "PEGATRON": {
+  "en": "Taiwanese ODM spun off from ASUS. Builds notebooks, desktops, phones and other electronics.",
+  "zh": "從華碩分出的台灣代工廠，生產筆電、桌機、手機等電子產品。",
+  "source": "Public company information"
+ },
+ "CORETRONIC": {
+  "en": "Taiwanese maker of projectors and display modules.",
+  "zh": "台灣的投影機與顯示模組製造商。",
+  "source": "Public company information"
+ },
+ "ECS": {
+  "en": "Elitegroup Computer Systems, a Taiwanese maker of motherboards, notebooks and desktops.",
+  "zh": "精英電腦（Elitegroup），台灣的主機板、筆電與桌機製造商。",
+  "source": "Public company information"
+ },
+ "HUAQIN": {
+  "en": "Chinese ODM for smartphones, tablets, notebooks and wearables.",
+  "zh": "中國代工廠，生產手機、平板、筆電與穿戴裝置。",
+  "source": "Public company information"
+ },
+ "LUXSHARE": {
+  "en": "Chinese maker of connectors and cables that also assembles electronics.",
+  "zh": "中國的連接器與線材製造商，也承接電子產品組裝。",
+  "source": "Public company information"
+ },
+ "FOXCONN": {
+  "en": "Foxconn is the trade name of Hon Hai Precision, the Taiwanese group that is the world's largest electronics contract manufacturer.",
+  "zh": "Foxconn（富士康）是鴻海精密的商標名稱，鴻海是全球最大的電子代工集團。",
+  "source": "Public company information"
+ },
+ "FOXCONN CHINA": {
+  "en": "Foxconn's operations in China. Foxconn is the trade name of Hon Hai Precision.",
+  "zh": "富士康在中國的營運據點；富士康即鴻海精密。",
+  "source": "Public company information"
+ },
+ "HON HAI": {
+  "en": "Hon Hai Precision (trade name Foxconn), the world's largest electronics contract manufacturer.",
+  "zh": "鴻海精密（商標名稱 Foxconn），全球最大的電子代工集團。",
+  "source": "Public company information"
+ },
+ "CLEVO": {
+  "en": "Taiwanese notebook ODM.",
+  "zh": "台灣筆電代工廠。",
+  "source": "Public company information"
+ },
+ "AUO": {
+  "en": "AUO (formerly AU Optronics), a Taiwanese display panel maker.",
+  "zh": "友達光電（AUO），台灣的顯示面板製造商。",
+  "source": "Public company information"
+ },
+ "INTEL": {
+  "en": "US chip maker; supplies processors.",
+  "zh": "美國晶片公司，供應處理器。",
+  "source": "Public company information"
+ },
+ "GIGABYTE": {
+  "en": "Taiwanese maker of motherboards, graphics cards and servers.",
+  "zh": "技嘉，台灣的主機板、顯示卡與伺服器製造商。",
+  "source": "Public company information"
+ },
+ "SUPERMICRO": {
+  "en": "US maker of servers and storage systems.",
+  "zh": "美國伺服器與儲存系統製造商。",
+  "source": "Public company information"
+ },
+ "DELTA": {
+  "en": "Taiwanese maker of power supplies and power electronics.",
+  "zh": "台達電，台灣的電源供應器與電力電子製造商。",
+  "source": "Public company information"
+ },
+ "CHICONY": {
+  "en": "Taiwanese maker of keyboards, camera modules and power supplies.",
+  "zh": "群光電子，台灣的鍵盤、相機模組與電源供應器製造商。",
+  "source": "Public company information"
+ },
+ "HYNIX": {
+  "en": "SK hynix, a Korean memory chip maker.",
+  "zh": "SK 海力士，韓國記憶體晶片製造商。",
+  "source": "Public company information"
+ },
+ "LONGCHEER": {
+  "en": "Chinese ODM for phones, tablets and notebooks.",
+  "zh": "中國代工廠，生產手機、平板與筆電。",
+  "source": "Public company information"
+ },
+ "WINGTECH": {
+  "en": "Chinese ODM for phones, tablets and notebooks.",
+  "zh": "中國代工廠，生產手機、平板與筆電。",
+  "source": "Public company information"
+ },
+ "SIMCOM": {
+  "en": "Shanghai maker of wireless communication modules.",
+  "zh": "上海的無線通訊模組製造商。",
+  "source": "Public company information"
+ },
+ "HKC": {
+  "en": "Chinese display maker: panels, monitors and TVs.",
+  "zh": "中國顯示器製造商，生產面板、螢幕與電視。",
+  "source": "Public company information"
+ },
+ "PLDS": {
+  "en": "Philips & Lite-On Digital Solutions, a maker of optical drives.",
+  "zh": "Philips 與光寶合資的光碟機製造商。",
+  "source": "Public company information"
+ },
+ "ACER": {
+  "en": "Parts sourced through Acer HQ (code ACER/HQ/CSD).",
+  "zh": "經由 Acer 總部（代碼 ACER/HQ/CSD）取得的零件。",
+  "source": "AAP Critical Report"
+ },
+ "LOCAL SOURCE": {
+  "en": "Parts bought locally rather than from an ODM.",
+  "zh": "在當地採購、不經 ODM 的零件。",
+  "source": "AAP Critical Report"
+ },
+ "ACER WW LOCAL PM": {
+  "en": "Code ACER WW LOCAL PM in the ODM column of the Critical Report.",
+  "zh": "Critical Report 的 ODM 欄中出現的代碼 ACER WW LOCAL PM。",
+  "source": "AAP Critical Report"
+ }
+}
