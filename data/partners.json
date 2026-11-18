@@ -866,6 +866,16 @@
       "en": "AAP POs look like SP010308PAP.",
       "zh": "AAP 的 PO 編號格式如 SP010308PAP。"
      }
+    },
+    {
+     "label": {
+      "en": "Weekly OPO report",
+      "zh": "每週 OPO 報表"
+     },
+     "value": {
+      "en": "Sends LENGDATECH Weekly OPO YYYY WKnn to every RO on Fridays, in its own format: PO lines with status, remaining quantity, ETD and part status.",
+      "zh": "每週五寄 LENGDATECH Weekly OPO YYYY WKnn 給各 RO，使用自己的格式：PO line 的狀態、未出貨數量、ETD 與料況。"
+     }
     }
    ],
    "notes": [
@@ -880,6 +890,10 @@
     {
      "en": "2026-11: Asked to cut PO SP010308PAP for DK.RF41P.0EK (Primax RF keyboard, DT) from 10 to 6 pcs because their keyboard supply is short. The 18 Nov Critical Report already shows 6 on order.",
      "zh": "2026-11：因鍵盤進料不足，要求把 PO SP010308PAP 的 DK.RF41P.0EK（Primax 無線鍵盤，桌機）從 10 個改為 6 個。11/18 的 Critical Report 在途量已顯示 6。"
+    },
+    {
+     "en": "2026-11-13 OPO (WK46): 11 open PO lines for AAP, listed under RO \"AAP→HSNC\".",
+     "zh": "2026-11-13 OPO（WK46）：AAP 有 11 筆未結 PO line，RO 欄標示為「AAP→HSNC」。"
     }
    ]
   },
@@ -1000,6 +1014,36 @@
     {
      "en": "2026-11-16 OPO: AAP has 104 open PO lines (2,851 pcs remaining): 55 in stock, 45 new POs and 4 in production; by type, 57 LTB, 42 FCST-R and 5 Special support.",
      "zh": "2026-11-16 OPO：AAP 有 104 筆未結 PO line（未出貨 2,851 件）：In stock 55、New PO 45、生產中 4；依類型為 LTB 57、FCST-R 42、Special support 5。"
+    }
+   ]
+  },
+  "WIBTEK": {
+   "facts": [
+    {
+     "label": {
+      "en": "Name in the OPO report",
+      "zh": "OPO 報表上的名稱"
+     },
+     "value": {
+      "en": "WIBTEK (Weibu)",
+      "zh": "WIBTEK（微步）"
+     }
+    },
+    {
+     "label": {
+      "en": "Weekly OPO report",
+      "zh": "每週 OPO 報表"
+     },
+     "value": {
+      "en": "Sends [Weekly OPO Report] WIBTEK NB YYYYMMDD to every RO each week, on Friday or Saturday; new PO lines are marked yellow. Uses Acer's common OPO template: one row per PO line with status, remaining quantity, ETD, Meet CRD, parts status and shortage reason.",
+      "zh": "每週五或週六寄 [Weekly OPO Report] WIBTEK NB YYYYMMDD 給各 RO，新單以黃色標示。使用 Acer 的共用 OPO 範本：一列一筆 PO line，含狀態、未出貨數量、ETD、Meet CRD、料況與缺料原因。"
+     }
+    }
+   ],
+   "notes": [
+    {
+     "en": "2026-11-13 OPO: AAP has 431 open PO lines (15,577 pcs remaining); 164 are overdue against CRD. 151 are in stock waiting to ship, 150 are new POs, 98 are short of material and 31 are in production; by type, 283 TnG-LTB, 89 TnG-NPI, 47 TnG-Monthly and 12 Special support.",
+     "zh": "2026-11-13 OPO：AAP 有 431 筆未結 PO line（未出貨 15,577 件），其中 164 筆已逾 CRD。已入庫待出貨 151、New PO 150、缺料待入料 98、生產中 31；依類型為 TnG-LTB 283、TnG-NPI 89、TnG-Monthly 47、Special support 12。"
     }
    ]
   }
