@@ -814,12 +814,6 @@
      "en": "2026-11-18: For AAP's extra (Non-FCST) demand of 40 × 27.J1HNG.001 (POWER CORD 1M EU), BMORN confirmed 40 pcs but asked for the PO against 27.DLQNG.001 at USD 2 (system price of J1HNG: USD 1). No substitute chain links the two in the Critical Report.",
      "zh": "2026-11-18：AAP 額外需求（Non-FCST）27.J1HNG.001（POWER CORD 1M EU）40 個，BMORN 確認可供 40 個，但要求 PO 改下 27.DLQNG.001、單價 USD 2（J1HNG 系統價 USD 1）。Critical Report 中兩者沒有替代料關係。"
     }
-   ],
-   "contacts": [
-    {
-     "en": "Support mailboxes: support01–04 (Shenzhen)",
-     "zh": "客服信箱：support01–04（深圳）"
-    }
    ]
   },
   "COMPAL": {
@@ -886,16 +880,6 @@
     {
      "en": "2026-11: Asked to cut PO SP010308PAP for DK.RF41P.0EK (Primax RF keyboard, DT) from 10 to 6 pcs because their keyboard supply is short. The 18 Nov Critical Report already shows 6 on order.",
      "zh": "2026-11：因鍵盤進料不足，要求把 PO SP010308PAP 的 DK.RF41P.0EK（Primax 無線鍵盤，桌機）從 10 個改為 6 個。11/18 的 Critical Report 在途量已顯示 6。"
-    }
-   ],
-   "contacts": [
-    {
-     "en": "Miaoling Zhou: DR reports and PO follow-up",
-     "zh": "Miaoling Zhou：DR 報表與 PO 跟進"
-    },
-    {
-     "en": "Ella Yang (cc on DR and PO mails)",
-     "zh": "Ella Yang（DR 與 PO 信件副本）"
     }
    ]
   }

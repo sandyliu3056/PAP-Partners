@@ -10,7 +10,8 @@
 - "What they do for PAP" for a supplier is written by the page from its product lines and part categories (`FAMILIES`, `CATS`).
 - `data/profiles.json`: one short company description per supplier name, in both languages, with its source. Add one only when a
   source confirms it; otherwise leave the supplier out.
-- `data/partners.json` is kept by hand: logistics and service entries, plus `supplierNotes` (notes, contacts, full names) keyed by the supplier name.
+- `data/partners.json` is kept by hand: logistics and service entries, plus `supplierNotes` (facts, notes, full names) keyed by the supplier name.
+- Don't add contacts: no people's names, email addresses or mail recipients (Sandy's rule, Nov 2026).
 - Only write facts that come from Sandy, her Acer Guide, the Critical Report or a named public source. Don't invent full names, countries or descriptions.
 - The site sits behind Basic Auth in `middleware.js` (same login as Acer Guide). Partner details are confidential: keep the repo private.
 - Design follows Acer Guide: brown / amber, Patrick Hand, panels with a dark border and shadow.
