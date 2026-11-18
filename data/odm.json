@@ -1,0 +1,1931 @@
+{
+ "meta": {
+  "source": "AAP_Critical_Report_20261118115348.csv",
+  "reportDate": "20261118",
+  "rows": 80289,
+  "rowsWithOdm": 54573
+ },
+ "suppliers": [
+  {
+   "id": "odm-quanta",
+   "name": "QUANTA",
+   "type": "odm",
+   "codes": {
+    "QUANTA/NB": 9773,
+    "QUANTA/CNBU": 103,
+    "QUANTA/NB-TH": 97,
+    "QUANTA/BU11": 27,
+    "QUANTA/DISPLAY": 18,
+    "QUANTA/DT": 14
+   },
+   "parts": 10028,
+   "sharedParts": 172,
+   "projects": 912,
+   "productLines": {
+    "Acer_Service_Chromebook": 2030,
+    "Acer_Service_NB_Consumer": 1964,
+    "Acer_Service_NB_Commercial": 1544,
+    "Acer_Service_NB_Gaming": 1036,
+    "Acer_NB_Commercial": 779,
+    "Acer_Chromebook_Commercial": 652
+   },
+   "categories": {
+    "Mainboard": 2328,
+    "Cable": 1362,
+    "KB Assembly": 1292,
+    "Others": 1123,
+    "Module/Card/Board": 803,
+    "Metal/Plastic": 696
+   },
+   "stages": {
+    "LTB": 2397,
+    "AML": 1961,
+    "CURRENT": 1901,
+    "PPB1": 1588,
+    "PPB2": 1494,
+    "EOS": 643,
+    "EOL": 24,
+    "LOCAL BUY": 10,
+    "VALID": 7,
+    "PROACTIVE EOM": 2,
+    "B/S": 1
+   },
+   "demand26w": 94496,
+   "partsWithGlsM0": 387,
+   "onHandNew": 89135,
+   "onOrder": 53153
+  },
+  {
+   "id": "odm-tpv",
+   "name": "TPV",
+   "type": "odm",
+   "codes": {
+    "TPV": 6506
+   },
+   "parts": 6506,
+   "sharedParts": 198,
+   "projects": 503,
+   "productLines": {
+    "Acer_Service_Display_Commercial": 2467,
+    "Acer_Service_Display_Consumer": 1793,
+    "Acer_Service_Display_Gaming": 1558,
+    "LCD_Display": 585,
+    "Acer_Service_Display_Creator": 35,
+    "Gateway_Service_Display_Consumer": 29
+   },
+   "categories": {
+    "Module/Card/Board": 1838,
+    "Metal/Plastic": 1497,
+    "Cable": 1300,
+    "LCD/TP": 597,
+    "Chassis/Housing": 470,
+    "Front/Back cover": 344
+   },
+   "stages": {
+    "LTB": 2924,
+    "CURRENT": 2267,
+    "EOS": 1310,
+    "VALID": 4,
+    "LOCAL BUY": 1
+   },
+   "demand26w": 1340,
+   "partsWithGlsM0": 902,
+   "onHandNew": 0,
+   "onOrder": 2143
+  },
+  {
+   "id": "odm-compal",
+   "name": "COMPAL",
+   "type": "odm",
+   "codes": {
+    "COMPAL/NB": 5968,
+    "COMPAL/SH": 102,
+    "COMPAL/NB-VN": 54
+   },
+   "parts": 6124,
+   "sharedParts": 114,
+   "projects": 460,
+   "productLines": {
+    "Acer_Service_NB_Consumer": 2067,
+    "Acer_Service_NB_Slim": 705,
+    "Acer_Service_NB_Gaming": 693,
+    "Acer_NB_Consumer": 544,
+    "Acer_Service_NB_Commercial": 536,
+    "Acer_NB_Commercial": 474
+   },
+   "categories": {
+    "Mainboard": 1529,
+    "Cable": 1001,
+    "KB Assembly": 691,
+    "Module/Card/Board": 471,
+    "Metal/Plastic": 440,
+    "Point device": 385
+   },
+   "stages": {
+    "AML": 1443,
+    "PPB1": 1372,
+    "LTB": 1307,
+    "PPB2": 1193,
+    "CURRENT": 633,
+    "EOS": 142,
+    "BLANK": 21,
+    "LOCAL BUY": 7,
+    "EOL": 5,
+    "VALID": 1
+   },
+   "demand26w": 32990,
+   "partsWithGlsM0": 242,
+   "onHandNew": 7897,
+   "onOrder": 3293
+  },
+  {
+   "id": "odm-wistron",
+   "name": "WISTRON",
+   "type": "odm",
+   "codes": {
+    "WISTRON/CSD": 5310,
+    "WISTRON/DISPLAY": 27
+   },
+   "parts": 5337,
+   "sharedParts": 612,
+   "projects": 572,
+   "productLines": {
+    "Acer_Service_NB_Consumer": 1358,
+    "Acer_DT_Commercial": 822,
+    "Acer_Service_DT_Consumer": 718,
+    "Acer_Service_DT_Commercial": 692,
+    "Acer_DT_Consumer": 501,
+    "Acer_NB_Consumer": 331
+   },
+   "categories": {
+    "Mainboard": 1062,
+    "Cable": 772,
+    "Metal/Plastic": 635,
+    "Module/Card/Board": 495,
+    "Others": 346,
+    "KB Assembly": 271
+   },
+   "stages": {
+    "LTB": 3522,
+    "EOS": 1416,
+    "PPB1": 227,
+    "PPB2": 98,
+    "CURRENT": 66,
+    "PROACTIVE EOM": 6,
+    "LOCAL BUY": 1,
+    "AML": 1
+   },
+   "demand26w": 11896,
+   "partsWithGlsM0": 251,
+   "onHandNew": 571,
+   "onOrder": 203
+  },
+  {
+   "id": "odm-qisda",
+   "name": "QISDA",
+   "type": "odm",
+   "codes": {
+    "QISDA": 3055,
+    "QISDA/PRJ": 928,
+    "QISDA/SH": 36
+   },
+   "parts": 4016,
+   "sharedParts": 186,
+   "projects": 366,
+   "productLines": {
+    "Acer_Service_Display_Commercial": 1339,
+    "Acer_Service_Display_Consumer": 970,
+    "Acer_Service_Projector": 709,
+    "Acer_Service_Display_Gaming": 415,
+    "LCD_Display": 283,
+    "Acer_Projector": 189
+   },
+   "categories": {
+    "Module/Card/Board": 1447,
+    "Metal/Plastic": 777,
+    "Cable": 536,
+    "Others": 385,
+    "LCD/TP": 288,
+    "Front/Back cover": 218
+   },
+   "stages": {
+    "LTB": 3246,
+    "CURRENT": 521,
+    "EOS": 244,
+    "VALID": 2,
+    "EOL": 2,
+    "PROACTIVE EOM": 1
+   },
+   "demand26w": 672,
+   "partsWithGlsM0": 323,
+   "onHandNew": 0,
+   "onOrder": 45
+  },
+  {
+   "id": "odm-tcl",
+   "name": "TCL",
+   "type": "odm",
+   "codes": {
+    "TCL": 2908
+   },
+   "parts": 2908,
+   "sharedParts": 2,
+   "projects": 163,
+   "productLines": {
+    "Acer_Service_Display_Consumer": 892,
+    "Acer_Service_Display_Gaming": 878,
+    "LCD_Display": 662,
+    "Acer_Service_Display_Commercial": 448,
+    "LCD_TV": 27,
+    "Acer_Projector": 1
+   },
+   "categories": {
+    "Module/Card/Board": 732,
+    "LCD/TP": 689,
+    "Metal/Plastic": 534,
+    "Cable": 460,
+    "Chassis/Housing": 230,
+    "Others": 89
+   },
+   "stages": {
+    "CURRENT": 2163,
+    "LTB": 741,
+    "EOL": 4
+   },
+   "demand26w": 2269,
+   "partsWithGlsM0": 838,
+   "onHandNew": 105,
+   "onOrder": 2851
+  },
+  {
+   "id": "odm-huaqin",
+   "name": "HUAQIN",
+   "type": "odm",
+   "codes": {
+    "HUAQIN": 2636,
+    "HUAQIN-VN": 10
+   },
+   "parts": 2646,
+   "sharedParts": 54,
+   "projects": 277,
+   "productLines": {
+    "Acer_Service_NB_Consumer": 818,
+    "Acer_Service_NB_Slim": 375,
+    "Acer_Service_NB_Commercial": 269,
+    "Acer_NB_Consumer": 207,
+    "Acer_NB_Commercial": 180,
+    "Acer_Service_Chromebook": 162
+   },
+   "categories": {
+    "Mainboard": 536,
+    "Others": 374,
+    "Cable": 344,
+    "KB Assembly": 297,
+    "Module/Card/Board": 206,
+    "Metal/Plastic": 174
+   },
+   "stages": {
+    "LTB": 615,
+    "AML": 536,
+    "PPB2": 512,
+    "PPB1": 448,
+    "CURRENT": 446,
+    "EOS": 76,
+    "EOL": 12,
+    "PROACTIVE EOM": 1
+   },
+   "demand26w": 19332,
+   "partsWithGlsM0": 142,
+   "onHandNew": 3463,
+   "onOrder": 2688
+  },
+  {
+   "id": "odm-acer",
+   "name": "ACER",
+   "type": "internal",
+   "codes": {
+    "ACER/HQ/CSD": 2248
+   },
+   "parts": 2248,
+   "sharedParts": 516,
+   "projects": 1330,
+   "productLines": {
+    "LCD_NB": 567,
+    "SSD_NB": 275,
+    "Memory_NB+On board Memory": 259,
+    "Adapter_NB": 257,
+    "Battery_NB": 209,
+    "Camera_NB": 169
+   },
+   "categories": {
+    "LCD/TP": 569,
+    "SSD": 302,
+    "Adapter": 288,
+    "Memory": 271,
+    "Battery": 231,
+    "Camera": 173
+   },
+   "stages": {
+    "LTB": 1378,
+    "EOS": 462,
+    "B/S": 312,
+    "CURRENT": 46,
+    "LOCAL BUY": 33,
+    "EOL": 8,
+    "PPB1": 6,
+    "AML": 2,
+    "BLANK": 1
+   },
+   "demand26w": 46324,
+   "partsWithGlsM0": 303,
+   "onHandNew": 1147,
+   "onOrder": 3652
+  },
+  {
+   "id": "odm-ecs",
+   "name": "ECS",
+   "type": "odm",
+   "codes": {
+    "ECS": 1870,
+    "ECS/NB": 86
+   },
+   "parts": 1956,
+   "sharedParts": 539,
+   "projects": 711,
+   "productLines": {
+    "Acer_DT_Commercial": 704,
+    "Acer_Service_DT_Commercial": 393,
+    "Acer_Service_DT_Consumer": 259,
+    "Acer_DT_Consumer": 200,
+    "Acer_Service_Desktop Gaming": 184,
+    "Acer_Service_AIO": 44
+   },
+   "categories": {
+    "Module/Card/Board": 288,
+    "Metal/Plastic": 247,
+    "Chassis/Housing": 238,
+    "Mainboard": 218,
+    "Cable": 204,
+    "Keyboard": 159
+   },
+   "stages": {
+    "LTB": 1215,
+    "CURRENT": 564,
+    "EOS": 163,
+    "PROACTIVE EOM": 11,
+    "LOCAL BUY": 2,
+    "B/S": 1
+   },
+   "demand26w": 14434,
+   "partsWithGlsM0": 160,
+   "onHandNew": 2621,
+   "onOrder": 4795
+  },
+  {
+   "id": "odm-pegatron",
+   "name": "PEGATRON",
+   "type": "odm",
+   "codes": {
+    "PEGATRON": 1955
+   },
+   "parts": 1955,
+   "sharedParts": 145,
+   "projects": 476,
+   "productLines": {
+    "Acer_Service_NB_Consumer": 677,
+    "Acer_Service_Tablet PC": 278,
+    "Acer_Service_NB_Commercial": 209,
+    "Acer_NB_Commercial": 200,
+    "Acer_Service_DT_Consumer": 139,
+    "Acer_NB_Consumer": 109
+   },
+   "categories": {
+    "Mainboard": 365,
+    "Cable": 328,
+    "KB Assembly": 196,
+    "Metal/Plastic": 193,
+    "Module/Card/Board": 166,
+    "Others": 88
+   },
+   "stages": {
+    "LTB": 1355,
+    "AML": 300,
+    "EOS": 180,
+    "PPB2": 59,
+    "CURRENT": 48,
+    "PPB1": 12,
+    "EOL": 1
+   },
+   "demand26w": 4532,
+   "partsWithGlsM0": 12,
+   "onHandNew": 317,
+   "onOrder": 1364
+  },
+  {
+   "id": "odm-coretronic",
+   "name": "CORETRONIC",
+   "type": "odm",
+   "codes": {
+    "CORETRONIC": 1549
+   },
+   "parts": 1549,
+   "sharedParts": 15,
+   "projects": 119,
+   "productLines": {
+    "Acer_Service_Projector": 1245,
+    "Acer_Projector": 267,
+    "Acer_Projector_Unified": 36,
+    "LCD PROJECTOR": 1
+   },
+   "categories": {
+    "Others": 458,
+    "Module/Card/Board": 427,
+    "Metal/Plastic": 306,
+    "Cable": 114,
+    "Fan/Heat Sink/Thermal": 87,
+    "Chassis/Housing": 68
+   },
+   "stages": {
+    "CURRENT": 805,
+    "EOS": 408,
+    "LTB": 334,
+    "EOL": 1,
+    "LOCAL BUY": 1
+   },
+   "demand26w": 738,
+   "partsWithGlsM0": 78,
+   "onHandNew": 0,
+   "onOrder": 180
+  },
+  {
+   "id": "odm-stc",
+   "name": "STC",
+   "type": "odm",
+   "codes": {
+    "STC": 1238
+   },
+   "parts": 1238,
+   "sharedParts": 6,
+   "projects": 98,
+   "productLines": {
+    "Acer_Service_Display_Consumer": 636,
+    "Acer_Service_Display_Gaming": 278,
+    "LCD_Display": 190,
+    "Acer_Service_Display_Commercial": 57,
+    "Acer_Service_AIO": 51,
+    "Acer_DT_Consumer": 13
+   },
+   "categories": {
+    "Module/Card/Board": 343,
+    "Metal/Plastic": 198,
+    "LCD/TP": 193,
+    "Cable": 169,
+    "Others": 158,
+    "Chassis/Housing": 106
+   },
+   "stages": {
+    "CURRENT": 1041,
+    "LTB": 150,
+    "EOS": 40,
+    "EOL": 4,
+    "LOCAL BUY": 3
+   },
+   "demand26w": 279,
+   "partsWithGlsM0": 281,
+   "onHandNew": 3,
+   "onOrder": 942
+  },
+  {
+   "id": "odm-boer",
+   "name": "BOER",
+   "type": "odm",
+   "codes": {
+    "BOER": 1141
+   },
+   "parts": 1141,
+   "sharedParts": 2,
+   "projects": 89,
+   "productLines": {
+    "Acer_Service_Display_Consumer": 525,
+    "Acer_Service_Display_Commercial": 280,
+    "Acer_Service_Display_Gaming": 254,
+    "LCD_Display": 82
+   },
+   "categories": {
+    "Module/Card/Board": 288,
+    "Cable": 248,
+    "Others": 224,
+    "Metal/Plastic": 186,
+    "LCD/TP": 82,
+    "Chassis/Housing": 46
+   },
+   "stages": {
+    "CURRENT": 544,
+    "LTB": 436,
+    "EOS": 161
+   },
+   "demand26w": 534,
+   "partsWithGlsM0": 151,
+   "onHandNew": 595,
+   "onOrder": 110
+  },
+  {
+   "id": "odm-local-source",
+   "name": "LOCAL SOURCE",
+   "type": "internal",
+   "codes": {
+    "LOCAL SOURCE": 1132
+   },
+   "parts": 1132,
+   "sharedParts": 443,
+   "projects": 1148,
+   "productLines": {
+    "CPU_DT": 292,
+    "Memory_DT": 157,
+    "SSD_NB": 147,
+    "Memory_NB+On board Memory": 116,
+    "HDD_DT": 56,
+    "LCD_Display": 50
+   },
+   "categories": {
+    "Memory": 316,
+    "CPU": 314,
+    "SSD": 189,
+    "HDD": 93,
+    "ODD": 59,
+    "LCD/TP": 57
+   },
+   "stages": {
+    "LOCAL BUY": 503,
+    "LTB": 502,
+    "EOS": 95,
+    "B/S": 32
+   },
+   "demand26w": 13056,
+   "partsWithGlsM0": 145,
+   "onHandNew": 3,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-lehui",
+   "name": "LEHUI",
+   "type": "odm",
+   "codes": {
+    "LEHUI": 1102
+   },
+   "parts": 1102,
+   "sharedParts": 47,
+   "projects": 142,
+   "productLines": {
+    "Acer_Service_Display_Consumer": 536,
+    "Acer_Service_Display_Commercial": 297,
+    "LCD_Display": 139,
+    "Acer_Service_Display_Gaming": 108,
+    "Acer_Service_Display_Creator": 16,
+    "Adapter_NB": 3
+   },
+   "categories": {
+    "Module/Card/Board": 311,
+    "Metal/Plastic": 239,
+    "Cable": 225,
+    "LCD/TP": 139,
+    "Front/Back cover": 90,
+    "Others": 49
+   },
+   "stages": {
+    "LTB": 930,
+    "EOS": 171,
+    "CURRENT": 1
+   },
+   "demand26w": 37,
+   "partsWithGlsM0": 80,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-guangxi-century",
+   "name": "GUANGXI CENTURY",
+   "type": "odm",
+   "codes": {
+    "GUANGXI CENTURY": 690
+   },
+   "parts": 690,
+   "sharedParts": 1,
+   "projects": 43,
+   "productLines": {
+    "Acer_Service_Display_Gaming": 443,
+    "Acer_Service_Display_Consumer": 151,
+    "LCD_Display": 50,
+    "Acer_Service_Display_Commercial": 46
+   },
+   "categories": {
+    "Cable": 205,
+    "Metal/Plastic": 159,
+    "Module/Card/Board": 112,
+    "Others": 97,
+    "LCD/TP": 50,
+    "Chassis/Housing": 25
+   },
+   "stages": {
+    "CURRENT": 410,
+    "LTB": 280
+   },
+   "demand26w": 61,
+   "partsWithGlsM0": 96,
+   "onHandNew": 0,
+   "onOrder": 236
+  },
+  {
+   "id": "odm-lengdatech",
+   "name": "LENGDATECH",
+   "type": "odm",
+   "codes": {
+    "LENGDATECH": 580,
+    "LENGDATECH/NB": 66
+   },
+   "parts": 642,
+   "sharedParts": 72,
+   "projects": 412,
+   "productLines": {
+    "Acer_Service_AIO": 262,
+    "Acer_Service_DT_Consumer": 141,
+    "Acer_DT_Consumer": 130,
+    "Acer_Service_NB_Commercial": 38,
+    "Acer_DT_Commercial": 37,
+    "Acer_Service_NB_Consumer": 11
+   },
+   "categories": {
+    "Metal/Plastic": 136,
+    "Mainboard": 109,
+    "Others": 91,
+    "Cable": 75,
+    "Module/Card/Board": 47,
+    "LCM Assembly": 47
+   },
+   "stages": {
+    "LTB": 384,
+    "CURRENT": 250,
+    "EOS": 8
+   },
+   "demand26w": 2270,
+   "partsWithGlsM0": 62,
+   "onHandNew": 562,
+   "onOrder": 517
+  },
+  {
+   "id": "odm-wibtek",
+   "name": "WIBTEK",
+   "type": "odm",
+   "codes": {
+    "WIBTEK": 524,
+    "WIBTEK/DT": 57
+   },
+   "parts": 581,
+   "sharedParts": 35,
+   "projects": 147,
+   "productLines": {
+    "Acer_Service NB_Consumer": 384,
+    "Acer_NB_Consumer": 77,
+    "Acer_DT_Commercial": 22,
+    "Battery_NB": 22,
+    "Acer_DT_Consumer": 16,
+    "Acer_Service_Desktop Gaming": 15
+   },
+   "categories": {
+    "Mainboard": 79,
+    "Cable": 76,
+    "KB Assembly": 71,
+    "Others": 60,
+    "Fan/Heat Sink/Thermal": 58,
+    "LCM Assembly": 54
+   },
+   "stages": {
+    "CURRENT": 430,
+    "LTB": 144,
+    "EOL": 6,
+    "B/S": 1
+   },
+   "demand26w": 8205,
+   "partsWithGlsM0": 43,
+   "onHandNew": 12492,
+   "onOrder": 16385
+  },
+  {
+   "id": "odm-hengsheng",
+   "name": "HENGSHENG",
+   "type": "odm",
+   "codes": {
+    "HENGSHENG": 469
+   },
+   "parts": 469,
+   "sharedParts": 13,
+   "projects": 83,
+   "productLines": {
+    "Acer_Service_Display_Gaming": 207,
+    "Acer_Service_Display_Consumer": 190,
+    "LCD_Display": 60,
+    "Acer_Service_Display_Commercial": 12
+   },
+   "categories": {
+    "Metal/Plastic": 111,
+    "Module/Card/Board": 96,
+    "Cable": 79,
+    "LCD/TP": 60,
+    "Others": 51,
+    "Adapter": 18
+   },
+   "stages": {
+    "CURRENT": 214,
+    "EOS": 167,
+    "LTB": 87,
+    "EOL": 1
+   },
+   "demand26w": 572,
+   "partsWithGlsM0": 78,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-luxshare",
+   "name": "LUXSHARE",
+   "type": "odm",
+   "codes": {
+    "LUXSHARE/DT": 453,
+    "LUXSHARE": 7
+   },
+   "parts": 460,
+   "sharedParts": 169,
+   "projects": 126,
+   "productLines": {
+    "Acer_Service_AIO": 155,
+    "Acer_DT_Consumer": 93,
+    "Acer_Service_DT_Consumer": 78,
+    "Acer_DT_Commercial": 39,
+    "Acer_Service_Desktop Gaming": 35,
+    "LCD_AIO": 9
+   },
+   "categories": {
+    "Mainboard": 91,
+    "Others": 86,
+    "Metal/Plastic": 67,
+    "Cable": 48,
+    "Chassis/Housing": 39,
+    "Fan/Heat Sink/Thermal": 30
+   },
+   "stages": {
+    "CURRENT": 397,
+    "LTB": 63
+   },
+   "demand26w": 1653,
+   "partsWithGlsM0": 62,
+   "onHandNew": 235,
+   "onOrder": 247
+  },
+  {
+   "id": "odm-6u",
+   "name": "6U",
+   "type": "odm",
+   "codes": {
+    "6U/DT": 211,
+    "6U": 187
+   },
+   "parts": 398,
+   "sharedParts": 158,
+   "projects": 146,
+   "productLines": {
+    "Acer_Service NB_Consumer": 147,
+    "Acer_Service_AIO": 121,
+    "Acer_Service_DT_Consumer": 37,
+    "Acer_DT_Consumer": 27,
+    "Acer_NB_Consumer": 17,
+    "Acer_DT_Commercial": 8
+   },
+   "categories": {
+    "Others": 106,
+    "Cable": 44,
+    "Metal/Plastic": 44,
+    "Mainboard": 37,
+    "Module/Card/Board": 24,
+    "KB Assembly": 23
+   },
+   "stages": {
+    "CURRENT": 398
+   },
+   "demand26w": 1001,
+   "partsWithGlsM0": 48,
+   "onHandNew": 963,
+   "onOrder": 5819
+  },
+  {
+   "id": "odm-daewoo",
+   "name": "DAEWOO",
+   "type": "odm",
+   "codes": {
+    "DAEWOO": 393
+   },
+   "parts": 393,
+   "sharedParts": 2,
+   "projects": 41,
+   "productLines": {
+    "Acer_Service_Display_Consumer": 227,
+    "Acer_Service_Display_Gaming": 109,
+    "LCD_Display": 57
+   },
+   "categories": {
+    "Metal/Plastic": 91,
+    "Cable": 82,
+    "Module/Card/Board": 78,
+    "LCD/TP": 57,
+    "Others": 43,
+    "Front/Back cover": 26
+   },
+   "stages": {
+    "LTB": 344,
+    "EOS": 49
+   },
+   "demand26w": 59,
+   "partsWithGlsM0": 18,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-great-wall",
+   "name": "GREAT-WALL",
+   "type": "odm",
+   "codes": {
+    "GREAT-WALL": 384
+   },
+   "parts": 384,
+   "sharedParts": 27,
+   "projects": 265,
+   "productLines": {
+    "Acer_Service NB_Consumer": 182,
+    "Acer_Service_Smart Handheld_Tablet PC": 90,
+    "Acer_NB_Consumer": 44,
+    "Acer_Service_NB_Consumer": 17,
+    "Adapter_NB": 14,
+    "Battery_NB": 12
+   },
+   "categories": {
+    "Others": 75,
+    "Cable": 50,
+    "KB Assembly": 49,
+    "Mainboard": 47,
+    "Module/Card/Board": 39,
+    "LCM Assembly": 21
+   },
+   "stages": {
+    "CURRENT": 210,
+    "LTB": 123,
+    "EOS": 44,
+    "EOL": 6,
+    "B/S": 1
+   },
+   "demand26w": 7923,
+   "partsWithGlsM0": 24,
+   "onHandNew": 15668,
+   "onOrder": 2506
+  },
+  {
+   "id": "odm-inventec",
+   "name": "INVENTEC",
+   "type": "odm",
+   "codes": {
+    "INVENTEC": 294
+   },
+   "parts": 294,
+   "sharedParts": 11,
+   "projects": 72,
+   "productLines": {
+    "Acer_Service_NB_Consumer": 134,
+    "Acer_Service_NB_Commercial": 52,
+    "Acer_NB_Gaming": 20,
+    "Acer_NB_Commercial": 18,
+    "Acer_Service_NB_Creator": 17,
+    "Acer_Service_NB_Gaming": 13
+   },
+   "categories": {
+    "Mainboard": 61,
+    "Cable": 52,
+    "Others": 41,
+    "Metal/Plastic": 28,
+    "Module/Card/Board": 25,
+    "KB Assembly": 25
+   },
+   "stages": {
+    "LTB": 221,
+    "AML": 52,
+    "PPB1": 16,
+    "PPB2": 4,
+    "EOS": 1
+   },
+   "demand26w": 18,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-hkc",
+   "name": "HKC",
+   "type": "odm",
+   "codes": {
+    "HKC": 230,
+    "HKC-BH": 18
+   },
+   "parts": 248,
+   "sharedParts": 1,
+   "projects": 38,
+   "productLines": {
+    "Acer_Service_Display_Gaming": 134,
+    "Acer_Service_Display_Consumer": 72,
+    "LCD_Display": 25,
+    "Acer_Service_Display_Commercial": 17
+   },
+   "categories": {
+    "Cable": 68,
+    "Others": 55,
+    "Metal/Plastic": 37,
+    "Module/Card/Board": 28,
+    "LCD/TP": 25,
+    "Adapter": 21
+   },
+   "stages": {
+    "CURRENT": 233,
+    "LTB": 15
+   },
+   "demand26w": 136,
+   "partsWithGlsM0": 55,
+   "onHandNew": 0,
+   "onOrder": 330
+  },
+  {
+   "id": "odm-neostra",
+   "name": "NEOSTRA",
+   "type": "odm",
+   "codes": {
+    "NEOSTRA": 162,
+    "NEOSTRA-SG": 74
+   },
+   "parts": 236,
+   "sharedParts": 10,
+   "projects": 65,
+   "productLines": {
+    "Acer_Service_Smart Handheld_Tablet PC": 112,
+    "Acer_Service_Rugged_Tablet PC": 60,
+    "Acer_NB_Tablet PC_Consumer": 29,
+    "Battery_Tablet": 13,
+    "Rugged Tablet": 8,
+    "Adapter_Smart HH": 4
+   },
+   "categories": {
+    "Cable": 34,
+    "LCM Assembly": 33,
+    "Mainboard": 33,
+    "Front/Back cover": 26,
+    "Camera": 24,
+    "Module/Card/Board": 22
+   },
+   "stages": {
+    "LTB": 212,
+    "EOS": 21,
+    "CURRENT": 3
+   },
+   "demand26w": 19,
+   "partsWithGlsM0": 1,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-bmorn",
+   "name": "BMORN",
+   "type": "odm",
+   "codes": {
+    "BMORN": 221
+   },
+   "parts": 221,
+   "sharedParts": 16,
+   "projects": 115,
+   "productLines": {
+    "Acer_Service NB_Consumer": 112,
+    "Acer_Service_Smart Handheld_Tablet PC": 43,
+    "Acer_NB_Consumer": 29,
+    "Battery_NB": 9,
+    "Adapter_NB": 6,
+    "SSD_NB": 4
+   },
+   "categories": {
+    "Mainboard": 34,
+    "Module/Card/Board": 32,
+    "Cable": 31,
+    "Fan/Heat Sink/Thermal": 20,
+    "KB Assembly": 20,
+    "Lower/Bottom case": 18
+   },
+   "stages": {
+    "LTB": 133,
+    "CURRENT": 85,
+    "EOL": 3
+   },
+   "demand26w": 6167,
+   "partsWithGlsM0": 31,
+   "onHandNew": 5213,
+   "onOrder": 4285
+  },
+  {
+   "id": "odm-clevo",
+   "name": "CLEVO",
+   "type": "odm",
+   "codes": {
+    "CLEVO": 196
+   },
+   "parts": 196,
+   "sharedParts": 5,
+   "projects": 37,
+   "productLines": {
+    "Acer_Service_NB_Gaming": 99,
+    "Acer_Service NB_Consumer": 36,
+    "Acer_NB_Gaming": 29,
+    "Battery_NB": 6,
+    "Acer_NB_Consumer": 6,
+    "Memory_NB+On board Memory": 5
+   },
+   "categories": {
+    "Mainboard": 35,
+    "Cable": 26,
+    "Module/Card/Board": 24,
+    "Metal/Plastic": 16,
+    "Others": 15,
+    "LCM Assembly": 13
+   },
+   "stages": {
+    "CURRENT": 148,
+    "LTB": 42,
+    "EOL": 6
+   },
+   "demand26w": 4171,
+   "partsWithGlsM0": 23,
+   "onHandNew": 3001,
+   "onOrder": 2991
+  },
+  {
+   "id": "odm-simcom",
+   "name": "SIMCOM",
+   "type": "odm",
+   "codes": {
+    "SIMCOM-SH": 165,
+    "SIMCOM": 8
+   },
+   "parts": 171,
+   "sharedParts": 17,
+   "projects": 69,
+   "productLines": {
+    "Acer_Service_Smart Handheld_Consumer": 103,
+    "Acer_Smart Handheld": 32,
+    "Camera_Module_Smart HH": 14,
+    "Battery_Smart HH": 8,
+    "Adapter_Tablet": 6,
+    "Adapter_Smart HH": 4
+   },
+   "categories": {
+    "Others": 23,
+    "Mainboard": 22,
+    "Lower/Bottom case": 20,
+    "LCM Assembly": 19,
+    "Module/Card/Board": 18,
+    "Metal/Plastic": 14
+   },
+   "stages": {
+    "LTB": 169,
+    "EOS": 2
+   },
+   "demand26w": 1,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-longcheer",
+   "name": "LONGCHEER",
+   "type": "odm",
+   "codes": {
+    "LONGCHEER/NB": 166
+   },
+   "parts": 166,
+   "sharedParts": 1,
+   "projects": 10,
+   "productLines": {
+    "Acer_Service_NB_Consumer": 143,
+    "Acer_NB_Consumer": 20,
+    "SSD_NB": 1,
+    "Battery_NB": 1,
+    "Acer_Gadgets": 1
+   },
+   "categories": {
+    "Others": 40,
+    "Cable": 26,
+    "KB Assembly": 24,
+    "Mainboard": 19,
+    "Module/Card/Board": 12,
+    "LCM Assembly": 12
+   },
+   "stages": {
+    "CURRENT": 111,
+    "LTB": 55
+   },
+   "demand26w": 28,
+   "partsWithGlsM0": 12,
+   "onHandNew": 877,
+   "onOrder": 1465
+  },
+  {
+   "id": "odm-hena",
+   "name": "HENA",
+   "type": "odm",
+   "codes": {
+    "HENA": 158
+   },
+   "parts": 158,
+   "sharedParts": 25,
+   "projects": 68,
+   "productLines": {
+    "Acer_Service_Smart Handheld_Tablet PC": 55,
+    "Acer_Service NB_Consumer": 39,
+    "Adapter_NB": 13,
+    "Acer_Service_NB_Consumer": 12,
+    "Acer_NB_Tablet PC_Consumer": 10,
+    "Battery_Tablet": 5
+   },
+   "categories": {
+    "Others": 50,
+    "Adapter": 16,
+    "Mainboard": 14,
+    "LCM Assembly": 11,
+    "Metal/Plastic": 10,
+    "Camera": 8
+   },
+   "stages": {
+    "CURRENT": 104,
+    "LTB": 52,
+    "EOL": 2
+   },
+   "demand26w": 1126,
+   "partsWithGlsM0": 19,
+   "onHandNew": 852,
+   "onOrder": 1788
+  },
+  {
+   "id": "odm-auo",
+   "name": "AUO",
+   "type": "odm",
+   "codes": {
+    "AUO": 133
+   },
+   "parts": 133,
+   "sharedParts": 0,
+   "projects": 20,
+   "productLines": {
+    "Acer_Service_Display_Gaming": 70,
+    "Acer_Service_Display_Creator": 34,
+    "Acer_Service_Display_Commercial": 15,
+    "LCD_Display": 14
+   },
+   "categories": {
+    "Module/Card/Board": 31,
+    "Cable": 30,
+    "Metal/Plastic": 25,
+    "Others": 15,
+    "LCD/TP": 14,
+    "Chassis/Housing": 8
+   },
+   "stages": {
+    "LTB": 133
+   },
+   "demand26w": 14,
+   "partsWithGlsM0": 19,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-foxconn",
+   "name": "FOXCONN",
+   "type": "odm",
+   "codes": {
+    "FOXCONN/PRJ": 107
+   },
+   "parts": 107,
+   "sharedParts": 1,
+   "projects": 9,
+   "productLines": {
+    "Acer_Service_Projector": 88,
+    "Acer_Projector": 17,
+    "Acer_Projector_Unified": 2
+   },
+   "categories": {
+    "Others": 37,
+    "Module/Card/Board": 33,
+    "Metal/Plastic": 16,
+    "Cable": 13,
+    "Fan/Heat Sink/Thermal": 6,
+    "Chassis/Housing": 1
+   },
+   "stages": {
+    "LTB": 98,
+    "CURRENT": 8,
+    "EOS": 1
+   },
+   "demand26w": 0,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-winner-wave-limited",
+   "name": "WINNER WAVE LIMITED",
+   "type": "odm",
+   "codes": {
+    "WINNER WAVE LIMITED": 95
+   },
+   "parts": 95,
+   "sharedParts": 1,
+   "projects": 13,
+   "productLines": {
+    "Acer_Service_Projector": 77,
+    "Acer_Projector": 12,
+    "Aopen_Projector": 5,
+    "Acer_Projector_Unified": 1
+   },
+   "categories": {
+    "Others": 49,
+    "Metal/Plastic": 16,
+    "Cable": 13,
+    "Module/Card/Board": 9,
+    "Fan/Heat Sink/Thermal": 3,
+    "Lower/Bottom case": 3
+   },
+   "stages": {
+    "LTB": 94,
+    "CURRENT": 1
+   },
+   "demand26w": 40,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-tongfang",
+   "name": "TONGFANG",
+   "type": "odm",
+   "codes": {
+    "TONGFANG": 90
+   },
+   "parts": 90,
+   "sharedParts": 0,
+   "projects": 3,
+   "productLines": {
+    "Acer_Service_NB_Consumer": 49,
+    "Acer_Service_Tablet PC": 24,
+    "Acer_NB_Consumer": 10,
+    "Battery_NB": 3,
+    "LCD_NB": 1,
+    "Optical_NB": 1
+   },
+   "categories": {
+    "Cable": 14,
+    "Metal/Plastic": 13,
+    "Mainboard": 12,
+    "Module/Card/Board": 11,
+    "Adapter": 10,
+    "KB Assembly": 8
+   },
+   "stages": {
+    "LTB": 88,
+    "EOS": 2
+   },
+   "demand26w": 444,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-3nod",
+   "name": "3NOD",
+   "type": "odm",
+   "codes": {
+    "3NOD": 79
+   },
+   "parts": 79,
+   "sharedParts": 2,
+   "projects": 8,
+   "productLines": {
+    "Acer_Service_Smart Handheld_Tablet PC": 40,
+    "Acer_Service_Tablet PC": 23,
+    "Acer_NB_Windows Tablet PC Consumer": 6,
+    "Adapter_Tablet": 3,
+    "Acer_NB_Tablet PC_Consumer": 3,
+    "Battery_Tablet": 2
+   },
+   "categories": {
+    "Cable": 19,
+    "Module/Card/Board": 12,
+    "Camera": 11,
+    "Mainboard": 9,
+    "Adapter": 8,
+    "LCM Assembly": 8
+   },
+   "stages": {
+    "LTB": 76,
+    "CURRENT": 3
+   },
+   "demand26w": 0,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-wingtech",
+   "name": "WINGTECH",
+   "type": "odm",
+   "codes": {
+    "WINGTECH": 58
+   },
+   "parts": 58,
+   "sharedParts": 4,
+   "projects": 6,
+   "productLines": {
+    "Acer_Service_Smart Handheld_Consumer": 31,
+    "Acer_Smart Handheld": 12,
+    "Adapter_Smart HH": 7,
+    "Camera_Module_Smart HH": 3,
+    "Battery_Smart HH": 3,
+    "Adapter_Tablet": 2
+   },
+   "categories": {
+    "Metal/Plastic": 11,
+    "Adapter": 9,
+    "Module/Card/Board": 8,
+    "Mainboard": 8,
+    "LCM Assembly": 5,
+    "Lower/Bottom case": 4
+   },
+   "stages": {
+    "LTB": 58
+   },
+   "demand26w": 0,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-ktc",
+   "name": "KTC",
+   "type": "odm",
+   "codes": {
+    "KTC": 50
+   },
+   "parts": 50,
+   "sharedParts": 0,
+   "projects": 4,
+   "productLines": {
+    "Acer_Service_Display_Commercial": 46,
+    "LCD_Display": 4
+   },
+   "categories": {
+    "Module/Card/Board": 16,
+    "Others": 11,
+    "Cable": 10,
+    "Accessory/Option": 5,
+    "LCD/TP": 4,
+    "Metal/Plastic": 2
+   },
+   "stages": {
+    "LTB": 50
+   },
+   "demand26w": 0,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-acer-ww-local-pm",
+   "name": "ACER WW LOCAL PM",
+   "type": "internal",
+   "codes": {
+    "ACER WW LOCAL PM": 45
+   },
+   "parts": 45,
+   "sharedParts": 13,
+   "projects": 186,
+   "productLines": {
+    "Acer_Server": 24,
+    "Acer_DT_Commercial": 5,
+    "Memory_Server": 5,
+    "HDD_DT": 3,
+    "Optical_DT": 3,
+    "Acer_Service_ Server": 2
+   },
+   "categories": {
+    "Metal/Plastic": 8,
+    "Fan/Heat Sink/Thermal": 6,
+    "Memory": 5,
+    "HDD": 4,
+    "Module/Card/Board": 3,
+    "Keyboard": 3
+   },
+   "stages": {
+    "CURRENT": 24,
+    "LOCAL BUY": 14,
+    "EOS": 4,
+    "LTB": 3
+   },
+   "demand26w": 0,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-hon-hai",
+   "name": "HON HAI",
+   "type": "odm",
+   "codes": {
+    "HON HAI/NB": 40
+   },
+   "parts": 40,
+   "sharedParts": 0,
+   "projects": 4,
+   "productLines": {
+    "Acer_Service_NB_Consumer": 30,
+    "Acer_NB_Consumer": 10
+   },
+   "categories": {
+    "Mainboard": 10,
+    "Cable": 7,
+    "Others": 7,
+    "LCM Assembly": 5,
+    "KB Assembly": 4,
+    "Fan/Heat Sink/Thermal": 3
+   },
+   "stages": {
+    "CURRENT": 39,
+    "VALID": 1
+   },
+   "demand26w": 8,
+   "partsWithGlsM0": 2,
+   "onHandNew": 122,
+   "onOrder": 17
+  },
+  {
+   "id": "odm-gigabyte",
+   "name": "GIGABYTE",
+   "type": "odm",
+   "codes": {
+    "GIGABYTE": 40
+   },
+   "parts": 40,
+   "sharedParts": 1,
+   "projects": 13,
+   "productLines": {
+    "Acer_Server": 31,
+    "Acer_Service_ Server": 5,
+    "Gateway_Service_Server": 2,
+    "Gateway_Server": 2
+   },
+   "categories": {
+    "Metal/Plastic": 13,
+    "Fan/Heat Sink/Thermal": 7,
+    "Cable": 6,
+    "Mainboard": 6,
+    "Module/Card/Board": 4,
+    "PSU": 3
+   },
+   "stages": {
+    "LTB": 31,
+    "CURRENT": 5,
+    "EOS": 4
+   },
+   "demand26w": 0,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-ctil",
+   "name": "CTIL",
+   "type": "odm",
+   "codes": {
+    "CTIL": 35
+   },
+   "parts": 35,
+   "sharedParts": 6,
+   "projects": 27,
+   "productLines": {
+    "Acer_Service_Display_Consumer": 16,
+    "LCD_Display": 15,
+    "Acer_Service_Display_Commercial": 4
+   },
+   "categories": {
+    "LCD/TP": 15,
+    "Module/Card/Board": 9,
+    "Adapter": 8,
+    "Cable": 2,
+    "Metal/Plastic": 1
+   },
+   "stages": {
+    "LTB": 35
+   },
+   "demand26w": 0,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-intel",
+   "name": "INTEL",
+   "type": "odm",
+   "codes": {
+    "INTEL": 32
+   },
+   "parts": 32,
+   "sharedParts": 0,
+   "projects": 7,
+   "productLines": {
+    "Acer_Server": 32
+   },
+   "categories": {
+    "Mainboard": 6,
+    "Metal/Plastic": 6,
+    "Cable": 5,
+    "Fan/Heat Sink/Thermal": 4,
+    "Chassis/Housing": 4,
+    "Module/Card/Board": 3
+   },
+   "stages": {
+    "CURRENT": 16,
+    "EOS": 16
+   },
+   "demand26w": 7,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-emdoor",
+   "name": "EMDOOR",
+   "type": "odm",
+   "codes": {
+    "EMDOOR": 31
+   },
+   "parts": 31,
+   "sharedParts": 0,
+   "projects": 7,
+   "productLines": {
+    "Acer_Service NB_Consumer": 26,
+    "SSD_NB": 3,
+    "Battery_NB": 1,
+    "Acer_NB_Consumer": 1
+   },
+   "categories": {
+    "Others": 10,
+    "Cable": 5,
+    "Fan/Heat Sink/Thermal": 3,
+    "SSD": 3,
+    "Module/Card/Board": 2,
+    "LCM Assembly": 2
+   },
+   "stages": {
+    "CURRENT": 28,
+    "LTB": 2,
+    "VALID": 1
+   },
+   "demand26w": 1,
+   "partsWithGlsM0": 1,
+   "onHandNew": 0,
+   "onOrder": 634
+  },
+  {
+   "id": "odm-supermicro",
+   "name": "SUPERMICRO",
+   "type": "odm",
+   "codes": {
+    "SUPERMICRO": 29
+   },
+   "parts": 29,
+   "sharedParts": 0,
+   "projects": 7,
+   "productLines": {
+    "Acer_Server": 29
+   },
+   "categories": {
+    "Mainboard": 8,
+    "Cable": 6,
+    "Fan/Heat Sink/Thermal": 5,
+    "Chassis/Housing": 4,
+    "PSU": 3,
+    "Accessory/Option": 2
+   },
+   "stages": {
+    "CURRENT": 22,
+    "EOS": 5,
+    "LTB": 1,
+    "EOL": 1
+   },
+   "demand26w": 1,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-foxconn-china",
+   "name": "FOXCONN CHINA",
+   "type": "odm",
+   "codes": {
+    "FOXCONN CHINA/DT": 24
+   },
+   "parts": 24,
+   "sharedParts": 4,
+   "projects": 126,
+   "productLines": {
+    "Acer_Service_DT_Consumer": 19,
+    "Acer_DT_Commercial": 3,
+    "Acer_DT_Consumer": 2
+   },
+   "categories": {
+    "Module/Card/Board": 8,
+    "Cable": 5,
+    "Others": 3,
+    "Metal/Plastic": 3,
+    "Point device": 2,
+    "WLAN": 1
+   },
+   "stages": {
+    "LTB": 22,
+    "EOS": 2
+   },
+   "demand26w": 2169,
+   "partsWithGlsM0": 1,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-borqs",
+   "name": "BORQS",
+   "type": "odm",
+   "codes": {
+    "BORQS": 21
+   },
+   "parts": 21,
+   "sharedParts": 8,
+   "projects": 42,
+   "productLines": {
+    "Acer_Service_Smart Handheld_Tablet PC": 11,
+    "Acer_Smart Handheld_Tablet PC": 4,
+    "Acer_NB_Commercial": 3,
+    "Battery_Tablet": 2,
+    "Acer_NB_Windows Tablet PC Consumer": 1
+   },
+   "categories": {
+    "Camera": 4,
+    "Accessory/Option": 4,
+    "Cable": 3,
+    "Module/Card/Board": 2,
+    "Metal/Plastic": 2,
+    "LCM Assembly": 2
+   },
+   "stages": {
+    "LTB": 18,
+    "CURRENT": 3
+   },
+   "demand26w": 0,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-wahlee",
+   "name": "WAHLEE",
+   "type": "odm",
+   "codes": {
+    "WAHLEE": 13
+   },
+   "parts": 13,
+   "sharedParts": 0,
+   "projects": 2,
+   "productLines": {
+    "Acer_Service_Display_Commercial": 10,
+    "LCD_Display": 2,
+    "Acer_Display_Commercial": 1
+   },
+   "categories": {
+    "Module/Card/Board": 11,
+    "LCD/TP": 2
+   },
+   "stages": {
+    "LTB": 13
+   },
+   "demand26w": 9,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-arima",
+   "name": "ARIMA",
+   "type": "odm",
+   "codes": {
+    "ARIMA": 11
+   },
+   "parts": 11,
+   "sharedParts": 0,
+   "projects": 1,
+   "productLines": {
+    "Acer_Service_Smart Handheld_Consumer": 5,
+    "Acer_Smart Handheld": 3,
+    "Adapter_Smart HH": 1,
+    "Camera_Module_Smart HH": 1,
+    "Battery_Smart HH": 1
+   },
+   "categories": {
+    "Module/Card/Board": 2,
+    "LCM Assembly": 2,
+    "Accessory/Option": 2,
+    "Metal/Plastic": 1,
+    "Mainboard": 1,
+    "Adapter": 1
+   },
+   "stages": {
+    "LTB": 11
+   },
+   "demand26w": 0,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-hubei-century",
+   "name": "HUBEI CENTURY",
+   "type": "odm",
+   "codes": {
+    "HUBEI CENTURY": 5
+   },
+   "parts": 5,
+   "sharedParts": 1,
+   "projects": 5,
+   "productLines": {
+    "LCD_Display": 5
+   },
+   "categories": {
+    "LCD/TP": 5
+   },
+   "stages": {
+    "LTB": 5
+   },
+   "demand26w": 0,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-hynix",
+   "name": "HYNIX",
+   "type": "odm",
+   "codes": {
+    "HYNIX": 2
+   },
+   "parts": 2,
+   "sharedParts": 2,
+   "projects": 60,
+   "productLines": {
+    "Memory_NB+On board Memory": 2
+   },
+   "categories": {
+    "Memory": 2
+   },
+   "stages": {
+    "LTB": 2
+   },
+   "demand26w": 0,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-chicony",
+   "name": "CHICONY",
+   "type": "odm",
+   "codes": {
+    "CHICONY": 1
+   },
+   "parts": 1,
+   "sharedParts": 1,
+   "projects": 8,
+   "productLines": {
+    "Acer_DT_Commercial": 1
+   },
+   "categories": {
+    "PSU": 1
+   },
+   "stages": {
+    "LTB": 1
+   },
+   "demand26w": 0,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-moka-global",
+   "name": "MOKA GLOBAL",
+   "type": "odm",
+   "codes": {
+    "MOKA GLOBAL": 1
+   },
+   "parts": 1,
+   "sharedParts": 1,
+   "projects": 2,
+   "productLines": {
+    "LCD_Display": 1
+   },
+   "categories": {
+    "LCD/TP": 1
+   },
+   "stages": {
+    "CURRENT": 1
+   },
+   "demand26w": 0,
+   "partsWithGlsM0": 1,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-plds",
+   "name": "PLDS",
+   "type": "odm",
+   "codes": {
+    "PLDS": 1
+   },
+   "parts": 1,
+   "sharedParts": 1,
+   "projects": 98,
+   "productLines": {
+    "Optical_NB": 1
+   },
+   "categories": {
+    "ODD": 1
+   },
+   "stages": {
+    "LTB": 1
+   },
+   "demand26w": 1,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-delta",
+   "name": "DELTA",
+   "type": "odm",
+   "codes": {
+    "DELTA": 1
+   },
+   "parts": 1,
+   "sharedParts": 0,
+   "projects": 1,
+   "productLines": {
+    "Acer_Projector": 1
+   },
+   "categories": {
+    "Others": 1
+   },
+   "stages": {
+    "LTB": 1
+   },
+   "demand26w": 0,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  },
+  {
+   "id": "odm-meidi",
+   "name": "MEIDI",
+   "type": "odm",
+   "codes": {
+    "MEIDI": 1
+   },
+   "parts": 1,
+   "sharedParts": 0,
+   "projects": 1,
+   "productLines": {
+    "Aopen_Projector": 1
+   },
+   "categories": {
+    "Module/Card/Board": 1
+   },
+   "stages": {
+    "CURRENT": 1
+   },
+   "demand26w": 0,
+   "partsWithGlsM0": 0,
+   "onHandNew": 0,
+   "onOrder": 0
+  }
+ ]
+}

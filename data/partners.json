@@ -1,0 +1,134 @@
+{
+ "_readme": "Hand-kept partner entries. Each entry: id, name, type (logistics | service), tags, summary, facts (label/value), notes (dated lines), contacts, source. Supplier notes go in supplierNotes, keyed by the supplier name used in odm.json.",
+ "partners": [
+  {
+   "id": "feili-hub",
+   "name": "Feili hub",
+   "type": "logistics",
+   "tags": ["Regional hub", "AAP"],
+   "summary": "The regional hub. Parts wait here until a picklist sends them to an NS.",
+   "facts": [
+    {"label": "Flow", "value": "The RO orders the total for all NS; the ODM ships to the hub, which splits it by NS."},
+    {"label": "Stock", "value": "Feili Inventory = open picklists + Stock in HUB. NS + Feili = AAP."},
+    {"label": "Valuation", "value": "Held at the cost it came in at; it does not move with exchange rates."},
+    {"label": "Monthly mails", "value": "PLS_Picklist_Monthly and PLS_Stock_Monthly on the 1st: open picklists and stock in the hub."},
+    {"label": "System", "value": "PLS"}
+   ],
+   "notes": [],
+   "contacts": [],
+   "source": "Acer Guide 6-7, 12-11, 12-12"
+  },
+  {
+   "id": "hsn-group",
+   "name": "HSN Group",
+   "fullName": "Highpoint Service Network",
+   "type": "logistics",
+   "tags": ["Acer affiliate", "From 1 Dec 2026"],
+   "summary": "Acer Group affiliate. From 1 Dec 2026 the parts PAP buys reach the NS through HSN Group; PAP still does the purchasing.",
+   "facts": [
+    {"label": "Role", "value": "Delivery path from PAP to the NS, from 1 Dec 2026."},
+    {"label": "Purchasing", "value": "Stays with PAP."},
+    {"label": "Before December POs", "value": "Check how the PO entities change."}
+   ],
+   "notes": [],
+   "contacts": [],
+   "source": "Acer Guide 1, 6-7"
+  },
+  {
+   "id": "ns-aca", "name": "ACA", "type": "service", "tags": ["NS", "Australia"],
+   "summary": "Australia's service company. ACNZ (New Zealand) sits under ACA.",
+   "facts": [{"label": "Country", "value": "Australia"}, {"label": "Covers", "value": "ACNZ (New Zealand)"}, {"label": "CSS instance", "value": "ACA"}, {"label": "Part-number code", "value": "A (7th character)"}],
+   "notes": [], "contacts": [], "source": "Acer Guide 6-6, 10-1"
+  },
+  {
+   "id": "ns-acs", "name": "ACS", "type": "service", "tags": ["NS"],
+   "summary": "Service company (NS).",
+   "facts": [{"label": "CSS instance", "value": "GI"}, {"label": "Part-number code", "value": "S (7th character)"}],
+   "notes": [], "contacts": [], "source": "Acer Guide 6-6, 10-1"
+  },
+  {
+   "id": "ns-afe", "name": "AFE", "type": "service", "tags": ["NS", "Hong Kong"],
+   "summary": "Hong Kong's service company.",
+   "facts": [{"label": "Country", "value": "Hong Kong"}, {"label": "CSS instance", "value": "GI"}],
+   "notes": [], "contacts": [], "source": "Acer Guide 6-6"
+  },
+  {
+   "id": "ns-ail", "name": "AIL", "type": "service", "tags": ["NS"],
+   "summary": "Service company (NS). Has its own CSS instance, shared with ABD.",
+   "facts": [{"label": "CSS instance", "value": "AIL (with ABD)"}, {"label": "Part-number code", "value": "I (7th character)"}],
+   "notes": [], "contacts": [], "source": "Acer Guide 6-6, 10-1"
+  },
+  {
+   "id": "ns-abd", "name": "ABD", "type": "service", "tags": ["NS"],
+   "summary": "Kept in the AIL CSS instance. Left out of WH Stock AAP Total.",
+   "facts": [{"label": "CSS instance", "value": "AIL"}, {"label": "Inventory report", "value": "Not in WH Stock AAP Total"}],
+   "notes": [], "contacts": [], "source": "Acer Guide 6-6, 12-11"
+  },
+  {
+   "id": "ns-ain", "name": "AIN", "type": "service", "tags": ["NS"],
+   "summary": "Service company (NS).",
+   "facts": [{"label": "CSS instance", "value": "GII"}, {"label": "Part-number code", "value": "N or D (7th character)"}],
+   "notes": [], "contacts": [], "source": "Acer Guide 6-6, 10-1"
+  },
+  {
+   "id": "ns-ajc", "name": "AJC", "type": "service", "tags": ["NS", "Japan"],
+   "summary": "Japan's service company. Also manages AKC (Korea).",
+   "facts": [{"label": "Country", "value": "Japan"}, {"label": "Covers", "value": "AKC (Korea)"}, {"label": "CSS instance", "value": "GI"}, {"label": "Part-number code", "value": "J (7th character, shared with AKC)"}],
+   "notes": [], "contacts": [], "source": "Acer Guide 6-6, 10-1"
+  },
+  {
+   "id": "ns-akc", "name": "AKC", "type": "service", "tags": ["NS", "Korea"],
+   "summary": "Korea, managed by AJC. No branches in CSS. Left out of WH Stock AAP Total.",
+   "facts": [{"label": "Country", "value": "Korea"}, {"label": "Managed by", "value": "AJC"}, {"label": "CSS instance", "value": "GI (no branches)"}],
+   "notes": [], "contacts": [], "source": "Acer Guide 6-6, 12-11"
+  },
+  {
+   "id": "ns-aphi", "name": "APHI", "type": "service", "tags": ["NS"],
+   "summary": "Service company (NS).",
+   "facts": [{"label": "CSS instance", "value": "GII"}, {"label": "Part-number code", "value": "P (7th character)"}],
+   "notes": [], "contacts": [], "source": "Acer Guide 6-6, 10-1"
+  },
+  {
+   "id": "ns-assb", "name": "ASSB", "type": "service", "tags": ["NS"],
+   "summary": "Service company (NS).",
+   "facts": [{"label": "CSS instance", "value": "GII"}, {"label": "Part-number code", "value": "M (7th character)"}],
+   "notes": [], "contacts": [], "source": "Acer Guide 6-6, 10-1"
+  },
+  {
+   "id": "ns-ath", "name": "ATH", "type": "service", "tags": ["NS"],
+   "summary": "Service company (NS).",
+   "facts": [{"label": "CSS instance", "value": "GI"}, {"label": "Part-number code", "value": "T (7th character)"}],
+   "notes": [], "contacts": [], "source": "Acer Guide 6-6, 10-1"
+  },
+  {
+   "id": "ns-avn", "name": "AVN", "type": "service", "tags": ["NS"],
+   "summary": "Service company (NS).",
+   "facts": [{"label": "CSS instance", "value": "GII"}, {"label": "Part-number code", "value": "V (7th character)"}],
+   "notes": [], "contacts": [], "source": "Acer Guide 6-6, 10-1"
+  },
+  {
+   "id": "ns-tbg", "name": "TBG", "type": "service", "tags": ["Taiwan", "PAP, not AAP"],
+   "summary": "Taiwan. TW, TWN and TBG all mean Taiwan. Counted in PAP but not in AAP.",
+   "facts": [{"label": "Country", "value": "Taiwan"}, {"label": "Inventory", "value": "Reported in the first week of the month; TPM (third-party repair) is Taiwan only."}],
+   "notes": [], "contacts": [], "source": "Acer Guide 12-11"
+  },
+  {
+   "id": "asp", "name": "ASP", "fullName": "Authorised service providers", "type": "service", "tags": ["Service centres"],
+   "summary": "Authorised service centres. They use PLM and CSS; repair cases are recorded in CSS.",
+   "facts": [{"label": "Systems", "value": "PLM, CSS"}],
+   "notes": [], "contacts": [], "source": "Acer Guide 6-4, 6-6"
+  }
+ ],
+ "supplierNotes": {
+  "BMORN": {
+   "fullName": "Bmorn Technology",
+   "notes": [
+    "2026-11-18: For AAP's extra (Non-FCST) demand of 40 × 27.J1HNG.001 (POWER CORD 1M EU), BMORN confirmed 40 pcs but asked for the PO against 27.DLQNG.001 at USD 2 (system price of J1HNG: USD 1). No substitute chain links the two in the Critical Report."
+   ],
+   "contacts": ["Support mailboxes: support01–04 (Shenzhen)"]
+  },
+  "COMPAL": {
+   "notes": ["LTB shipments follow a 9-month schedule (others: 12 months), partial per RO."]
+  }
+ }
+}

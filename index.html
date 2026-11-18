@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>PAP Partners</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brown:#3A1E12; --ink:#3B2416; --amber:#FFB71B; --gold:#8C5B10;
+  --paper:#FFFFFF; --line:#E3B75C; --muted:#8A6B4C; --green:#6E8B3D; --blue:#5E88A8; --red:#B5502F; --soft:#FFF8EA;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;font-family:"Patrick Hand","Segoe UI",system-ui,sans-serif;color:var(--ink);font-size:17px;line-height:1.35}
+header{background:var(--brown);padding:12px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;position:sticky;top:0;z-index:5}
+.brand{font-size:28px;letter-spacing:.2em;color:var(--amber);white-space:nowrap}
+.pill{border:1.2px solid var(--amber);color:var(--amber);border-radius:4px;padding:1px 7px;font-size:13px}
+header .sp{flex:1}
+#q{font:inherit;font-size:16px;padding:4px 10px;border-radius:5px;border:1.3px solid var(--amber);background:#fff;min-width:240px}
+main{max-width:1240px;margin:0 auto;padding:18px 22px 40px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tab{cursor:pointer;background:var(--paper);border:1.3px solid var(--brown);border-radius:5px;padding:2px 11px;box-shadow:0 1.6px 0 var(--brown);color:var(--brown);font:inherit;font-size:15px}
+.tab.on{background:var(--amber)}
+.tab b{font-weight:400;color:var(--muted);margin-left:4px}
+.tab.on b{color:var(--brown)}
+.intro{color:var(--muted);font-size:15px;margin:-4px 0 14px}
+.sortbar{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--muted);margin-bottom:12px}
+.sortbar select{font:inherit;font-size:14px;border:1.2px solid var(--line);border-radius:4px;padding:1px 4px;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:13px}
+.card{background:var(--paper);border:1.4px solid var(--brown);border-radius:6px;box-shadow:0 3px 7px rgba(70,35,10,.16);padding:10px 14px 12px;cursor:pointer;display:flex;flex-direction:column;gap:6px}
+.card:hover{transform:translateY(-1px);box-shadow:0 5px 10px rgba(70,35,10,.2)}
+.card h3{margin:0;font-weight:400;font-size:21px;color:var(--brown);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.card h3 small{font-size:14px;color:var(--muted)}
+.kind{font-size:12px;border-radius:3px;padding:0 6px;color:#fff;align-self:flex-start}
+.k-odm{background:var(--gold)}.k-logistics{background:var(--blue)}.k-service{background:var(--green)}.k-internal{background:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-size:12.5px;border:1px solid var(--line);border-radius:3px;padding:0 5px;background:var(--soft)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;font-size:12.5px;color:var(--muted);line-height:1.1}
+.stats span b{display:block;font-weight:400;color:var(--ink);font-size:19px}
+.sum{font-size:15px}
+.bar{display:flex;height:9px;border-radius:3px;overflow:hidden;border:1px solid var(--brown)}
+.bar i{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:12.5px;color:var(--muted)}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:3px;vertical-align:-1px;border:1px solid rgba(0,0,0,.15)}
+.empty{color:var(--muted);padding:30px 0;text-align:center}
+/* detail */
+#veil{position:fixed;inset:0;background:rgba(40,20,8,.35);display:none;z-index:9}
+#veil.on{display:block}
+#detail{position:fixed;top:0;right:0;height:100%;width:min(560px,100%);background:#fff;border-left:2px solid var(--brown);z-index:10;transform:translateX(102%);transition:transform .2s;overflow:auto;padding:18px 22px 30px}
+#detail.on{transform:none}
+#detail .x{float:right;cursor:pointer;font:inherit;background:var(--amber);border:1.3px solid var(--brown);border-radius:5px;padding:0 9px;box-shadow:0 1.6px 0 var(--brown)}
+#detail h2{font-weight:400;font-size:28px;margin:0 0 2px;color:var(--brown)}
+#detail .sub{color:var(--muted);margin-bottom:10px}
+.sec{margin:14px 0 6px;font-size:18px;color:var(--brown);border-bottom:1.2px dashed var(--line);padding-bottom:3px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+td{padding:3px 4px;border-bottom:1px solid #F1E3C4;vertical-align:top}
+td.n{text-align:right;white-space:nowrap;width:1%}
+td.l{color:var(--muted);width:38%}
+ul.notes{margin:0;padding-left:18px}ul.notes li{margin-bottom:4px}
+.src{color:var(--muted);font-size:13.5px;margin-top:16px}
+footer{max-width:1240px;margin:0 auto;padding:0 22px 30px;color:var(--muted);font-size:13.5px}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">PAP PARTNERS</div>
+  <span class="pill" id="count">…</span>
+  <div class="sp"></div>
+  <input id="q" type="search" placeholder="Search name, code, product line, NS…" autocomplete="off">
+</header>
+<main>
+  <div class="tabs" id="tabs"></div>
+  <p class="intro" id="intro"></p>
+  <div class="sortbar" id="sortbar">Sort by
+    <select id="sort">
+      <option value="parts">Part numbers</option>
+      <option value="demand26w">Demand, last 26 weeks</option>
+      <option value="partsWithGlsM0">Parts with a GLS M0 suggestion</option>
+      <option value="name">Name</option>
+    </select>
+  </div>
+  <div class="grid" id="grid"></div>
+</main>
+<footer id="foot"></footer>
+<div id="veil"></div>
+<aside id="detail" aria-hidden="true"></aside>
+
+<script>
+const TYPES = {
+  all:       {label: 'All', intro: 'Everyone PAP works with: the ODMs and suppliers we buy parts from, the logistics partners that move them, and the service network that uses them.'},
+  odm:       {label: 'ODM & suppliers', intro: 'Every supplier named in the ODM column of the AAP Critical Report. Codes such as QUANTA/NB and QUANTA/NB-TH are grouped under one company; a part shared by several suppliers counts for each.'},
+  logistics: {label: 'Logistics & hub', intro: 'The hub and the partners that move parts from the ODMs to the NS.'},
+  service:   {label: 'Service network', intro: 'Each country\'s service company (NS) and the authorised service providers (ASP) who use the parts.'},
+  internal:  {label: 'Acer & local sourcing', intro: 'Sourcing codes in the ODM column that are not outside suppliers.'}
+};
+const STAGES = [['CURRENT','#6E8B3D'],['AML','#A9C46C'],['PPB1','#FFB71B'],['PPB2','#E08E2B'],['LTB','#B5502F'],['EOL','#7A4A3A'],['EOS','#5E88A8'],['OTHER','#CFC3B3']];
+const fmt = n => Number(n || 0).toLocaleString('en-US');
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let ALL = [], META = {}, tab = 'all';
+
+function stageBuckets(st){
+  const b = {}; let t = 0;
+  for (const [k, v] of Object.entries(st || {})) { const key = STAGES.some(s => s[0] === k) ? k : 'OTHER'; b[key] = (b[key] || 0) + v; t += v; }
+  return {b, t};
+}
+function stageBar(st){
+  const {b, t} = stageBuckets(st); if (!t) return '';
+  return '<div class="bar" title="Lifecycle stage of its parts">' + STAGES.filter(s => b[s[0]]).map(s => `<i style="width:${b[s[0]]/t*100}%;background:${s[1]}" title="${s[0]} ${fmt(b[s[0]])}"></i>`).join('') + '</div>';
+}
+function stageLegend(st){
+  const {b} = stageBuckets(st);
+  return '<div class="legend">' + STAGES.filter(s => b[s[0]]).map(s => `<span><i style="background:${s[1]}"></i>${s[0]} ${fmt(b[s[0]])}</span>`).join('') + '</div>';
+}
+const short = pl => pl.replace(/^Acer_Service_/, '').replace(/^Acer_/, '').replace(/_/g, ' ');
+
+function card(p){
+  const kind = `<span class="kind k-${p.type}">${TYPES[p.type].label}</span>`;
+  if (p.type === 'odm' || p.type === 'internal') {
+    const codes = Object.keys(p.codes).slice(0, 4).map(c => `<span class="chip">${esc(c)}</span>`).join('') + (Object.keys(p.codes).length > 4 ? `<span class="chip">+${Object.keys(p.codes).length - 4}</span>` : '');
+    const pls = [...new Set(Object.keys(p.productLines).map(short))].slice(0, 3).join(' · ');
+    return `<div class="card" data-id="${p.id}">${kind}<h3>${esc(p.name)}${p.fullName ? `<small>${esc(p.fullName)}</small>` : ''}</h3>
+      <div class="chips">${codes}</div>
+      <div class="stats"><span><b>${fmt(p.parts)}</b>parts</span><span><b>${fmt(p.projects)}</b>projects</span><span><b>${fmt(p.demand26w)}</b>demand, 26 wks</span></div>
+      <div class="sum">${esc(pls)}</div>${stageBar(p.stages)}</div>`;
+  }
+  return `<div class="card" data-id="${p.id}">${kind}<h3>${esc(p.name)}${p.fullName ? `<small>${esc(p.fullName)}</small>` : ''}</h3>
+    <div class="chips">${(p.tags || []).map(t => `<span class="chip">${esc(t)}</span>`).join('')}</div>
+    <div class="sum">${esc(p.summary)}</div></div>`;
+}
+
+function haystack(p){
+  return [p.name, p.fullName, p.summary, ...(p.tags || []), ...Object.keys(p.codes || {}), ...Object.keys(p.productLines || {}), ...Object.keys(p.categories || {}),
+          ...(p.facts || []).map(f => f.value), ...(p.notes || [])].join(' ').toLowerCase();
+}
+
+function render(){
+  const q = document.getElementById('q').value.trim().toLowerCase();
+  const key = document.getElementById('sort').value;
+  let list = ALL.filter(p => (tab === 'all' || p.type === tab) && (!q || p._h.includes(q)));
+  const supplierView = tab === 'odm' || tab === 'internal';
+  list.sort((a, b) => {
+    if (key === 'name' || !supplierView) {
+      if (!supplierView && a.type !== b.type) return Object.keys(TYPES).indexOf(a.type) - Object.keys(TYPES).indexOf(b.type);
+      if (!supplierView && (a.parts || b.parts)) return (b.parts || 0) - (a.parts || 0);
+      return a.name.localeCompare(b.name);
+    }
+    return (b[key] || 0) - (a[key] || 0);
+  });
+  document.getElementById('sortbar').style.display = supplierView ? 'flex' : 'none';
+  document.getElementById('intro').textContent = TYPES[tab].intro;
+  document.getElementById('grid').innerHTML = list.length ? list.map(card).join('') : '<div class="empty">Nothing matches.</div>';
+  document.getElementById('count').textContent = `${list.length} of ${ALL.length}`;
+}
+
+function tabs(){
+  document.getElementById('tabs').innerHTML = Object.entries(TYPES).map(([k, t]) =>
+    `<button class="tab${k === tab ? ' on' : ''}" data-t="${k}">${t.label}<b>${k === 'all' ? ALL.length : ALL.filter(p => p.type === k).length}</b></button>`).join('');
+}
+
+function table(obj, label){
+  const rows = Object.entries(obj || {});
+  if (!rows.length) return '';
+  return `<div class="sec">${label}</div><table>${rows.map(([k, v]) => `<tr><td>${esc(k)}</td><td class="n">${fmt(v)}</td></tr>`).join('')}</table>`;
+}
+
+function open(id){
+  const p = ALL.find(x => x.id === id); if (!p) return;
+  let h = `<button class="x" onclick="closeD()">Close</button><h2>${esc(p.name)}</h2><div class="sub">${esc(p.fullName || '')}${p.fullName ? ' · ' : ''}${TYPES[p.type].label}</div>`;
+  if (p.summary) h += `<p>${esc(p.summary)}</p>`;
+  if (p.type === 'odm' || p.type === 'internal') {
+    h += `<div class="sec">In the Critical Report</div><table>
+      <tr><td class="l">Part numbers</td><td>${fmt(p.parts)}${p.sharedParts ? ` (${fmt(p.sharedParts)} shared with other suppliers)` : ''}</td></tr>
+      <tr><td class="l">Projects</td><td>${fmt(p.projects)}</td></tr>
+      <tr><td class="l">Demand, last 26 weeks</td><td>${fmt(p.demand26w)}</td></tr>
+      <tr><td class="l">Parts with a GLS M0 suggestion</td><td>${fmt(p.partsWithGlsM0)}</td></tr>
+      <tr><td class="l">On Hand New · On Order</td><td>${fmt(p.onHandNew)} · ${fmt(p.onOrder)}</td></tr></table>`;
+    h += `<div class="sec">Lifecycle stage of its parts</div>${stageBar(p.stages)}<div style="margin-top:6px">${stageLegend(p.stages)}</div>`;
+    h += table(p.codes, 'Codes in the ODM column') + table(p.productLines, 'Main product lines (PC7)') + table(p.categories, 'Main part categories (PC8)');
+  }
+  if (p.facts && p.facts.length) h += `<div class="sec">Facts</div><table>${p.facts.map(f => `<tr><td class="l">${esc(f.label)}</td><td>${esc(f.value)}</td></tr>`).join('')}</table>`;
+  if (p.notes && p.notes.length) h += `<div class="sec">Notes</div><ul class="notes">${p.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul>`;
+  if (p.contacts && p.contacts.length) h += `<div class="sec">Contacts</div><ul class="notes">${p.contacts.map(n => `<li>${esc(n)}</li>`).join('')}</ul>`;
+  h += `<div class="src">Source: ${esc(p.source || '')}</div>`;
+  const d = document.getElementById('detail'); d.innerHTML = h; d.classList.add('on'); d.setAttribute('aria-hidden', 'false');
+  document.getElementById('veil').classList.add('on');
+  history.replaceState(null, '', '#' + id);
+}
+function closeD(){
+  document.getElementById('detail').classList.remove('on'); document.getElementById('veil').classList.remove('on');
+  history.replaceState(null, '', location.pathname);
+}
+
+Promise.all([fetch('data/odm.json').then(r => r.json()), fetch('data/partners.json').then(r => r.json())]).then(([odm, man]) => {
+  META = odm.meta;
+  const d = META.reportDate ? `${META.reportDate.slice(0,4)}-${META.reportDate.slice(4,6)}-${META.reportDate.slice(6)}` : '';
+  const sup = odm.suppliers.map(s => {
+    const extra = man.supplierNotes[s.name] || {};
+    return {...s, fullName: extra.fullName, notes: extra.notes || [], contacts: extra.contacts || [], source: `AAP Critical Report ${d}`};
+  });
+  ALL = [...sup, ...man.partners].map(p => ({...p, _h: haystack(p)}));
+  document.getElementById('foot').textContent = `Supplier figures: ${META.source} (${fmt(META.rows)} part numbers, ${fmt(META.rowsWithOdm)} with an ODM). Logistics and service entries: Acer Guide.`;
+  tabs(); render();
+  if (location.hash) open(location.hash.slice(1));
+});
+
+document.getElementById('tabs').addEventListener('click', e => { const b = e.target.closest('.tab'); if (!b) return; tab = b.dataset.t; tabs(); render(); });
+document.getElementById('grid').addEventListener('click', e => { const c = e.target.closest('.card'); if (c) open(c.dataset.id); });
+document.getElementById('q').addEventListener('input', render);
+document.getElementById('sort').addEventListener('change', render);
+document.getElementById('veil').addEventListener('click', closeD);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeD(); });
+</script>
+</body>
+</html>
