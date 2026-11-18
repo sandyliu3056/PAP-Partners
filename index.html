@@ -47,7 +47,7 @@ main{max-width:1240px;margin:0 auto;padding:18px 22px 40px}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;font-size:12.5px;color:var(--muted);line-height:1.1}
 .stats span b{display:block;font-weight:400;color:var(--ink);font-size:19px}
 .sum{font-size:15px}
-.bar{display:flex;height:9px;border-radius:3px;overflow:hidden;border:1px solid var(--brown)}
+.bar{margin-top:auto;display:flex;height:9px;border-radius:3px;overflow:hidden;border:1px solid var(--brown)}
 .bar i{display:block;height:100%}
 .legend{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:12.5px;color:var(--muted)}
 .legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:3px;vertical-align:-1px;border:1px solid rgba(0,0,0,.15)}
@@ -69,6 +69,35 @@ td.n{text-align:right;white-space:nowrap;width:1%}
 td.l{color:var(--muted);width:38%}
 ul.notes{margin:0;padding-left:18px}ul.notes li{margin-bottom:4px}
 .src{color:var(--muted);font-size:13.5px;margin-top:16px}
+/* overview */
+.hero{display:flex;gap:18px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;margin:4px 0 12px}
+.hero h1{margin:0;font-weight:400;font-size:30px;color:var(--brown);letter-spacing:.04em}
+.hero p{margin:4px 0 0;color:var(--muted);max-width:720px}
+.tiles{display:flex;gap:10px;flex-wrap:wrap}
+.tile{border:1.4px solid var(--brown);border-radius:6px;padding:4px 12px;box-shadow:0 2px 0 var(--brown);background:var(--soft);text-align:center;min-width:92px;cursor:pointer}
+.tile b{display:block;font-weight:400;font-size:24px;color:var(--brown);line-height:1.1}
+.tile span{font-size:13px;color:var(--muted)}
+.map{border:1.4px solid var(--brown);border-radius:8px;box-shadow:0 3px 7px rgba(70,35,10,.16);background:#FFFCF5;padding:8px}
+.map svg{display:block;width:100%;height:auto}
+.map .node{cursor:pointer}
+.map text.lbl{paint-order:stroke;stroke:#FFFCF5;stroke-width:6px;stroke-linejoin:round}
+.map .node:hover rect{filter:brightness(.96)}
+.map text{font-family:"Patrick Hand","Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif}
+.legendrow{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:14px;margin:8px 4px 0}
+.legendrow svg{vertical-align:middle;margin-right:5px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:14px}
+.step{border:1.2px solid var(--line);border-radius:6px;padding:8px 12px;background:#fff}
+.step b{font-weight:400;color:var(--gold);display:block}
+/* sections */
+.section{margin:0 0 22px}
+.section h2{font-weight:400;font-size:22px;color:var(--brown);margin:0 0 10px;padding-bottom:4px;border-bottom:1.4px dashed var(--line);display:flex;gap:10px;align-items:baseline}
+.section h2 span{font-size:14px;color:var(--muted)}
+.minis{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-top:10px}
+.mini{border:1.2px solid var(--line);border-radius:5px;padding:5px 10px;cursor:pointer;background:#fff;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.mini:hover{border-color:var(--brown);background:var(--soft)}
+.mini b{font-weight:400;color:var(--brown)}
+.mini span{font-size:13px;color:var(--muted);white-space:nowrap}
+.subhead{color:var(--muted);font-size:14px;margin:12px 0 0}
 footer{max-width:1240px;margin:0 auto;padding:0 22px 30px;color:var(--muted);font-size:13.5px}
 </style>
 </head>
@@ -84,7 +113,7 @@ footer{max-width:1240px;margin:0 auto;padding:0 22px 30px;color:var(--muted);fon
   <div class="tabs" id="tabs"></div>
   <p class="intro" id="intro"></p>
   <div class="sortbar" id="sortbar"><span id="sortLabel"></span><select id="sort"></select></div>
-  <div class="grid" id="grid"></div>
+  <div id="view"></div>
 </main>
 <footer id="foot"></footer>
 <div id="veil"></div>
@@ -97,7 +126,7 @@ const UI = {
     search: 'Search name, code, product line, NS…', of: 'of', sortBy: 'Sort by', nothing: 'Nothing matches.', close: 'Close',
     sorts: {parts: 'Part numbers', demand26w: 'Demand, last 26 weeks', partsWithGlsM0: 'Parts with a GLS M0 suggestion', name: 'Name'},
     types: {
-      all: ['All', 'Everyone PAP works with: the ODMs and suppliers we buy parts from, the hub and partners that move the parts, and the service network that uses them.'],
+      home: ['Overview', 'How PAP works with its partners.'],
       odm: ['ODM & suppliers', 'The companies PAP buys service parts from. Every supplier in the ODM column of the AAP Critical Report is here; codes such as QUANTA/NB and QUANTA/NB-TH are grouped under one company, and a part shared by several suppliers counts for each.'],
       logistics: ['Logistics & hub', 'The partners that move parts from the ODMs to each NS.'],
       service: ['Service network', 'The service companies (NS) in each country and the authorised service providers (ASP) who use the parts to repair Acer products.'],
@@ -111,13 +140,27 @@ const UI = {
     facts: 'Facts', notes: 'Notes', contacts: 'Contacts', source: 'Source', report: 'AAP Critical Report',
     foot: m => `Supplier figures: ${m.source} (${fmt(m.rows)} part numbers, ${fmt(m.rowsWithOdm)} with an ODM). Logistics and service entries: Acer Guide. Company descriptions: the source shown on each page.`,
     role: (fam, cat) => `Supplies parts for Acer ${fam}${cat ? `, mainly ${cat}` : ''}.`,
-    list: a => a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1]
+    list: a => a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1],
+    groups: {nb: 'Notebooks & Chromebooks', display: 'Monitors & TVs', projector: 'Projectors', tablet: 'Tablets & handhelds', desktop: 'Desktops & all-in-ones', server: 'Servers', other: 'Other'},
+    suppliers: n => `${n} suppliers`, smaller: 'Smaller suppliers (under 100 part numbers)', results: 'Search results', partsShort: 'parts',
+    home: {
+      title: 'Who PAP works with',
+      lead: 'PAP plans and buys service parts for every NS in Asia Pacific. The ODMs build and ship the parts, the Feili hub splits them by NS, and each NS uses them to repair Acer products with its service centres.',
+      tiles: [['odm', 'ODMs & suppliers'], ['logistics', 'Logistics partners'], ['service', 'Service network']],
+      odm: 'ODMs & suppliers', odmSub: 'Build the parts', pap: 'PAP · RO', papSub: 'Plans and buys for all NS', papItems: ['CSS: create the PO', 'PLS: confirm to the ODM', 'GLS: plan and track stock'],
+      hub: 'Feili hub', hubSub: 'Splits each shipment by NS', hsn: 'HSN Group', hsnSub: 'To the NS from 1 Dec 2026',
+      ns: 'Service companies (NS)', asp: 'ASP', aspSub: 'Service centres', cust: 'Customers', custSub: 'Acer users',
+      po: 'PO', ship: 'Parts', pick: 'Picklist', orders: 'NS orders', repair: 'Repairs', more: n => `+${n} more`,
+      solid: 'Parts move', dashed: 'Orders and POs',
+      steps: [['1  NS order', 'Each NS orders the parts it needs from PAP.'], ['2  PAP buys', 'PAP adds up all NS demand, creates the PO in CSS and confirms it to the ODM in PLS.'],
+              ['3  ODM ships', 'The ODM ships everything to the Feili hub, which splits it by NS with picklists.'], ['4  NS repairs', 'The NS and its service centres use the parts to repair customers\' products.']]
+    }
   },
   zh: {
     search: '搜尋名稱、代碼、產品線、NS…', of: '／', sortBy: '排序', nothing: '找不到符合的項目。', close: '關閉',
     sorts: {parts: '料號數', demand26w: '近 26 週需求', partsWithGlsM0: '有 GLS M0 建議的料號數', name: '名稱'},
     types: {
-      all: ['全部', 'PAP 所有的合作對象：供應零件的 ODM 與供應商、負責運送零件的 hub 與物流夥伴，以及使用零件的服務網路。'],
+      home: ['總覽', 'PAP 與合作夥伴的關係。'],
       odm: ['ODM 與供應商', 'PAP 採購維修零件的對象。收錄 AAP Critical Report 中 ODM 欄出現的所有供應商；同一家公司的不同代碼（如 QUANTA/NB、QUANTA/NB-TH）合併計算，多家共用的料號會分別計入每一家。'],
       logistics: ['物流與 hub', '把零件從 ODM 送到各 NS 的合作夥伴。'],
       service: ['服務網路', '各國的服務公司（NS）與授權維修中心（ASP），使用零件維修 Acer 產品。'],
@@ -131,15 +174,36 @@ const UI = {
     facts: '基本資料', notes: '備註', contacts: '聯絡窗口', source: '資料來源', report: 'AAP Critical Report',
     foot: m => `供應商數據：${m.source}（共 ${fmt(m.rows)} 個料號，其中 ${fmt(m.rowsWithOdm)} 個有 ODM）。物流與服務網路：Acer Guide。公司簡介：來源標示於各頁。`,
     role: (fam, cat) => `供應 Acer ${fam}${/[A-Za-z]$/.test(fam) ? ' ' : ''}的零件${cat ? `，主要是${cat}` : ''}。`,
-    list: a => a.join('、')
+    list: a => a.join('、'),
+    groups: {nb: '筆電與 Chromebook', display: '螢幕與電視', projector: '投影機', tablet: '平板與手持裝置', desktop: '桌機與 AIO', server: '伺服器', other: '其他'},
+    suppliers: n => `${n} 家`, smaller: '較小的供應商（料號少於 100 個）', results: '搜尋結果', partsShort: '料號',
+    home: {
+      title: 'PAP 的合作夥伴',
+      lead: 'PAP 為亞太區各國 NS 規劃並採購維修零件。ODM 生產並出貨，Feili hub 依 NS 分貨，各國 NS 再和維修中心一起用這些零件修理 Acer 產品。',
+      tiles: [['odm', 'ODM 與供應商'], ['logistics', '物流夥伴'], ['service', '服務網路']],
+      odm: 'ODM 與供應商', odmSub: '生產零件', pap: 'PAP · RO', papSub: '為所有 NS 規劃與採購', papItems: ['CSS：開 PO', 'PLS：確認給 ODM', 'GLS：規劃與追蹤庫存'],
+      hub: 'Feili hub', hubSub: '依 NS 拆分出貨', hsn: 'HSN Group', hsnSub: '2026/12/1 起負責送到 NS',
+      ns: '各國服務公司（NS）', asp: 'ASP', aspSub: '授權維修中心', cust: '客戶', custSub: 'Acer 使用者',
+      po: 'PO', ship: '零件出貨', pick: 'Picklist', orders: 'NS 訂單', repair: '維修', more: n => `另 ${n} 家`,
+      solid: '零件流向', dashed: '訂單與 PO',
+      steps: [['1  NS 下單', '各國 NS 向 PAP 訂需要的零件。'], ['2  PAP 採購', 'PAP 彙總所有 NS 的需求，在 CSS 開 PO，再到 PLS 確認給 ODM。'],
+              ['3  ODM 出貨', 'ODM 把貨全部送到 Feili hub，由 hub 依 picklist 分給各 NS。'], ['4  NS 維修', 'NS 和旗下維修中心用這些零件修理客戶的產品。']]
+    }
   }
 };
-const FAMILIES = [ // product line → product family; first match wins
-  [/Chromebook/, 'Chromebooks', 'Chromebook'], [/Tablet|Handheld|Smart HH|Rugged/, 'tablets and handhelds', '平板與手持裝置'],
-  [/NB|Notebook/, 'notebooks', '筆電'], [/Desktop|DT/, 'desktops', '桌機'], [/AIO/, 'all-in-ones', 'AIO 一體機'],
-  [/Display/, 'monitors', '螢幕'], [/Projector|PROJECTOR/, 'projectors', '投影機'], [/Server/, 'servers', '伺服器'],
-  [/TV/, 'TVs', '電視'], [/Gadget/, 'gadgets', '周邊小物']
+const FAMILIES = [ // product line → product family and page group; first match wins
+  [/Chromebook/, 'Chromebooks', 'Chromebook', 'nb'], [/Tablet|Handheld|Smart HH|Rugged/, 'tablets and handhelds', '平板與手持裝置', 'tablet'],
+  [/NB|Notebook/, 'notebooks', '筆電', 'nb'], [/Desktop|DT/, 'desktops', '桌機', 'desktop'], [/AIO/, 'all-in-ones', 'AIO 一體機', 'desktop'],
+  [/Display/, 'monitors', '螢幕', 'display'], [/Projector|PROJECTOR/, 'projectors', '投影機', 'projector'], [/Server/, 'servers', '伺服器', 'server'],
+  [/TV/, 'TVs', '電視', 'display'], [/Gadget/, 'gadgets', '周邊小物', 'other']
 ];
+const GROUP_ORDER = ['nb', 'display', 'projector', 'tablet', 'desktop', 'server', 'other'];
+function groupOf(p){
+  const g = {};
+  for (const [pl, n] of Object.entries(p.productLines || {})) { const f = FAMILIES.find(([re]) => re.test(pl)); if (f) g[f[3]] = (g[f[3]] || 0) + n; }
+  const top = Object.entries(g).sort((a, b) => b[1] - a[1])[0];
+  return top ? top[0] : 'other';
+}
 const CATS = { // PC8 category → [English in a sentence, Chinese]
   'Accessory/Option': ['accessories', '配件'], 'Adapter': ['adapters', '變壓器'], 'Battery': ['batteries', '電池'], 'CPU': ['CPUs', 'CPU'],
   'Cable': ['cables', '線材'], 'Camera': ['cameras', '相機模組'], 'Chassis/Housing': ['chassis', '機殼'], 'Fan/Heat Sink/Thermal': ['fans and thermal parts', '風扇與散熱件'],
@@ -154,7 +218,7 @@ const STAGES = [['CURRENT','#6E8B3D'],['AML','#A9C46C'],['PPB1','#FFB71B'],['PPB
 
 const fmt = n => Number(n || 0).toLocaleString('en-US');
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-let L = 'en', ALL = [], META = {}, PROFILES = {}, tab = 'all';
+let L = 'en', ALL = [], META = {}, PROFILES = {}, tab = 'home';
 const T = () => UI[L];
 const tx = v => v == null ? '' : (typeof v === 'string' ? v : (v[L] ?? v.en ?? ''));
 const isSupplier = p => p.type === 'odm' || p.type === 'internal';
@@ -186,7 +250,7 @@ const stageLegend = st => { const {b} = stageBuckets(st);
 
 /* ---------- cards ---------- */
 function card(p){
-  const kind = `<span class="kind k-${p.type}">${T().types[p.type][0]}</span>`;
+  const kind = ''; // the section heading already says what kind it is
   const title = `<h3>${esc(p.name)}${p.fullName ? `<small>${esc(tx(p.fullName))}</small>` : ''}</h3>`;
   if (isSupplier(p)) {
     const ks = Object.keys(p.codes);
@@ -208,22 +272,121 @@ function haystack(p){ // search matches either language
           ...(p.facts || []).flatMap(f => both(f.value)), ...(p.notes || []).flatMap(both)].join(' ').toLowerCase();
 }
 
+function sorted(list){
+  const key = document.getElementById('sort').value;
+  return list.slice().sort((a, b) => key === 'name' || !(a.parts || b.parts) ? a.name.localeCompare(b.name) : (b[key] || 0) - (a[key] || 0));
+}
+const mini = p => `<div class="mini" data-id="${p.id}"><b>${esc(p.name)}</b><span>${fmt(p.parts)} ${T().partsShort}</span></div>`;
+function section(id, title, list, splitSmall){
+  if (!list.length) return '';
+  const big = splitSmall ? list.filter(p => p.parts >= 100) : list, small = splitSmall ? list.filter(p => p.parts < 100) : [];
+  return `<div class="section" id="sec-${id}"><h2>${esc(title)}<span>${list[0].parts == null ? list.length : T().suppliers(list.length)}</span></h2>
+    ${big.length ? `<div class="grid">${sorted(big).map(card).join('')}</div>` : ''}
+    ${small.length ? `${big.length ? `<div class="subhead">${T().smaller}</div>` : ''}<div class="minis">${sorted(small).map(mini).join('')}</div>` : ''}</div>`;
+}
+function sections(list, types){
+  let h = '';
+  for (const ty of types) {
+    const items = list.filter(p => p.type === ty);
+    if (ty === 'odm') for (const g of GROUP_ORDER) h += section(g, (types.length > 1 ? T().types.odm[0] + ' · ' : '') + T().groups[g], items.filter(p => groupOf(p) === g), true);
+    else h += section(ty, T().types[ty][0], items, ty === 'internal');
+  }
+  return h;
+}
+
 function render(){
   const q = document.getElementById('q').value.trim().toLowerCase();
-  const key = document.getElementById('sort').value;
+  const view = document.getElementById('view');
+  const types = ['odm', 'logistics', 'service', 'internal'];
   const sv = tab === 'odm' || tab === 'internal';
-  const order = Object.keys(T().types);
-  const list = ALL.filter(p => (tab === 'all' || p.type === tab) && (!q || p._h.includes(q)));
-  list.sort((a, b) => {
-    if (!sv && a.type !== b.type) return order.indexOf(a.type) - order.indexOf(b.type);
-    if (sv && key !== 'name') return (b[key] || 0) - (a[key] || 0);
-    if (key !== 'name' && (a.parts || b.parts)) return (b.parts || 0) - (a.parts || 0);
-    return a.name.localeCompare(b.name);
-  });
   document.getElementById('sortbar').style.display = sv ? 'flex' : 'none';
-  document.getElementById('intro').textContent = T().types[tab][1];
-  document.getElementById('grid').innerHTML = list.length ? list.map(card).join('') : `<div class="empty">${T().nothing}</div>`;
+  if (tab === 'home' && !q) {
+    document.getElementById('intro').textContent = '';
+    view.innerHTML = home();
+    document.getElementById('count').textContent = `${ALL.length}`;
+    return;
+  }
+  const list = ALL.filter(p => (tab === 'home' || p.type === tab) && (!q || p._h.includes(q)));
+  document.getElementById('intro').textContent = tab === 'home' ? T().results : T().types[tab][1];
+  view.innerHTML = list.length ? sections(list, tab === 'home' ? types : [tab]) : `<div class="empty">${T().nothing}</div>`;
   document.getElementById('count').textContent = `${list.length} ${T().of} ${ALL.length}`;
+}
+
+/* ---------- overview: the partner map ---------- */
+function home(){
+  const H = T().home, X = s => esc(s);
+  const odm = ALL.filter(p => p.type === 'odm');
+  const groups = GROUP_ORDER.map(g => ({g, items: odm.filter(p => groupOf(p) === g).sort((a, b) => b.parts - a.parts)})).filter(x => x.items.length);
+  const ns = [['ns-aca', 'ACA', '+ ACNZ'], ['ns-ajc', 'AJC', '+ AKC'], ['ns-afe', 'AFE', ''], ['ns-acs', 'ACS', ''], ['ns-ail', 'AIL', '+ ABD'],
+              ['ns-ain', 'AIN', ''], ['ns-aphi', 'APHI', ''], ['ns-assb', 'ASSB', ''], ['ns-ath', 'ATH', ''], ['ns-avn', 'AVN', '']];
+  const country = id => { const p = ALL.find(x => x.id === id); const f = p && (p.facts || []).find(f => f.label.en === 'Country'); return f ? tx(f.value) : ''; };
+  const W = 1240, gy = 56, gh = Math.min(76, Math.floor(470 / groups.length) - 8);
+  let svg = `<svg viewBox="0 0 ${W} 600" role="img" aria-label="${X(H.title)}">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3A1E12"/></marker>
+    <marker id="ahd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8C5B10"/></marker>
+    <filter id="sh" x="-5%" y="-5%" width="110%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#46230a" flood-opacity=".18"/></filter>
+  </defs>
+  <text x="20" y="36" font-size="20" fill="#8C5B10">${X(H.odm)}</text><text x="20" y="52" font-size="13" fill="#8A6B4C">${X(H.odmSub)}</text>`;
+  groups.forEach(({g, items}, i) => {
+    const y = gy + 10 + i * (gh + 8); let shown = []; for (const p of items) { if (shown.length === 3 || [...shown, p.name].join(' · ').length > 32) break; shown.push(p.name); }
+    const names = shown.join(' · '), more = items.length - shown.length;
+    svg += `<g class="node" data-go="odm" data-sec="${g}"><rect x="20" y="${y}" width="270" height="${gh}" rx="8" fill="#fff" stroke="#8C5B10" stroke-width="1.6" filter="url(#sh)"/>
+      <text x="34" y="${y + 23}" font-size="17" fill="#3A1E12">${X(T().groups[g])}</text>
+      <text x="276" y="${y + 23}" font-size="14" fill="#8A6B4C" text-anchor="end">${items.length}</text>
+      <text x="34" y="${y + 44}" font-size="13.5" fill="#3B2416">${X(names)}</text>
+      ${more > 0 ? `<text x="34" y="${y + 61}" font-size="12" fill="#8A6B4C">${X(H.more(more))}</text>` : ''}</g>`;
+  });
+  const colBottom = gy + 10 + groups.length * (gh + 8) - 8;
+  // PAP
+  svg += `<g><rect x="380" y="150" width="230" height="200" rx="10" fill="#FFB71B" stroke="#3A1E12" stroke-width="1.8" filter="url(#sh)"/>
+    <text x="495" y="186" font-size="24" fill="#3A1E12" text-anchor="middle">${X(H.pap)}</text>
+    <text x="495" y="208" font-size="14" fill="#3A1E12" text-anchor="middle">${X(H.papSub)}</text>
+    ${H.papItems.map((t, i) => `<rect x="398" y="${224 + i * 38}" width="194" height="30" rx="6" fill="#fff" stroke="#3A1E12" stroke-width="1.2"/><text x="495" y="${244 + i * 38}" font-size="14" fill="#3B2416" text-anchor="middle">${X(t)}</text>`).join('')}</g>`;
+  // PO: PAP -> ODM
+  svg += `<path d="M380,200 L294,200" stroke="#8C5B10" stroke-width="2" stroke-dasharray="6 5" fill="none" marker-end="url(#ahd)"/>
+    <text class="lbl" x="337" y="192" font-size="14" fill="#8C5B10" text-anchor="middle">${X(H.po)}</text>`;
+  // hub + HSN
+  svg += `<g class="node" data-id="feili-hub"><rect x="680" y="390" width="200" height="74" rx="10" fill="#EAF1F7" stroke="#5E88A8" stroke-width="1.8" filter="url(#sh)"/>
+      <text x="780" y="420" font-size="20" fill="#3A1E12" text-anchor="middle">${X(H.hub)}</text><text x="780" y="443" font-size="13.5" fill="#3B2416" text-anchor="middle">${X(H.hubSub)}</text></g>
+    <g class="node" data-id="hsn-group"><rect x="680" y="490" width="200" height="74" rx="10" fill="#fff" stroke="#5E88A8" stroke-width="1.6" stroke-dasharray="6 4"/>
+      <text x="780" y="520" font-size="18" fill="#3A1E12" text-anchor="middle">${X(H.hsn)}</text><text x="780" y="543" font-size="12.5" fill="#3B2416" text-anchor="middle">${X(H.hsnSub)}</text></g>`;
+  // parts: ODM -> hub
+  const py = Math.min(colBottom - 30, 470);
+  svg += `<path d="M292,${py} C430,${py + 60} 560,430 678,427" stroke="#3A1E12" stroke-width="2.2" fill="none" marker-end="url(#ah)"/>
+    <text class="lbl" x="560" y="${(py + 427) / 2 + 2}" font-size="14" fill="#3A1E12" text-anchor="middle">${X(H.ship)}</text>`;
+  // NS column
+  const nx = 945, ny = 66, nh = 40, ng = 7;
+  svg += `<text x="${nx}" y="36" font-size="20" fill="#6E8B3D">${X(H.ns)}</text>`;
+  ns.forEach(([id, code, extra], i) => {
+    const y = ny + i * (nh + ng), c = country(id);
+    svg += `<g class="node" data-id="${id}"> <rect x="${nx}" y="${y}" width="160" height="${nh}" rx="7" fill="#F2F6EA" stroke="#6E8B3D" stroke-width="1.5"/>
+      <text x="${nx + 12}" y="${y + 26}" font-size="17" fill="#3A1E12">${code}</text>
+       <text x="${nx + 150}" y="${y + 26}" font-size="11.5" fill="#6E8B3D" text-anchor="end">${X([extra, c].filter(Boolean).join(' · '))}</text></g>`;
+  });
+  const nb = ny + ns.length * (nh + ng) - ng;
+  svg += `<path d="M930,${ny + 4} L930,${nb - 4}" stroke="#6E8B3D" stroke-width="2.2" fill="none"/>
+    <path d="M880,427 L926,427" stroke="#3A1E12" stroke-width="2.2" fill="none" marker-end="url(#ah)"/>
+    <text class="lbl" x="904" y="417" font-size="13.5" fill="#3A1E12" text-anchor="middle">${X(H.pick)}</text>
+    <path d="M930,96 C800,96 720,170 612,170" stroke="#8C5B10" stroke-width="2" stroke-dasharray="6 5" fill="none" marker-end="url(#ahd)"/>
+    <text class="lbl" x="790" y="118" font-size="14" fill="#8C5B10" text-anchor="middle">${X(H.orders)}</text>`;
+  // ASP and customers
+  svg += `<path d="M1112,${ny + 4} L1112,${nb - 4}" stroke="#6E8B3D" stroke-width="2.2" fill="none"/>
+    <path d="M1112,250 L1124,250" stroke="#3A1E12" stroke-width="2.2" fill="none" marker-end="url(#ah)"/>
+    <g class="node" data-id="asp"><rect x="1126" y="214" width="108" height="72" rx="8" fill="#F2F6EA" stroke="#6E8B3D" stroke-width="1.6" filter="url(#sh)"/>
+      <text x="1180" y="244" font-size="19" fill="#3A1E12" text-anchor="middle">${X(H.asp)}</text><text x="1180" y="266" font-size="12.5" fill="#3B2416" text-anchor="middle">${X(H.aspSub)}</text></g>
+    <path d="M1180,288 L1180,336" stroke="#3A1E12" stroke-width="2.2" fill="none" marker-end="url(#ah)"/>
+    <text class="lbl" x="1186" y="318" font-size="12.5" fill="#3A1E12">${X(H.repair)}</text>
+    <g><rect x="1126" y="338" width="108" height="72" rx="8" fill="#FFF8EA" stroke="#8A6B4C" stroke-width="1.4"/>
+      <text x="1180" y="368" font-size="19" fill="#3A1E12" text-anchor="middle">${X(H.cust)}</text><text x="1180" y="390" font-size="12.5" fill="#3B2416" text-anchor="middle">${X(H.custSub)}</text></g>
+  </svg>`;
+  const count = ty => ALL.filter(p => p.type === ty).length;
+  return `<div class="hero"><div><h1>${X(H.title)}</h1><p>${X(H.lead)}</p></div>
+      <div class="tiles">${H.tiles.map(([ty, label]) => `<div class="tile" data-go="${ty}"><b>${count(ty)}</b><span>${X(label)}</span></div>`).join('')}</div></div>
+    <div class="map">${svg}</div>
+    <div class="legendrow"><span><svg width="34" height="10"><path d="M0,5 L30,5" stroke="#3A1E12" stroke-width="2.2"/></svg>${X(H.solid)}</span>
+      <span><svg width="34" height="10"><path d="M0,5 L30,5" stroke="#8C5B10" stroke-width="2" stroke-dasharray="6 5"/></svg>${X(H.dashed)}</span></div>
+    <div class="steps">${H.steps.map(([a, b]) => `<div class="step"><b>${X(a)}</b>${X(b)}</div>`).join('')}</div>`;
 }
 
 function chrome(){
@@ -234,7 +397,7 @@ function chrome(){
   const s = document.getElementById('sort'), cur = s.value || 'parts';
   s.innerHTML = Object.entries(T().sorts).map(([k, v]) => `<option value="${k}">${v}</option>`).join(''); s.value = cur;
   document.getElementById('tabs').innerHTML = Object.entries(T().types).map(([k, t]) =>
-    `<button class="tab${k === tab ? ' on' : ''}" data-t="${k}">${t[0]}<b>${k === 'all' ? ALL.length : ALL.filter(p => p.type === k).length}</b></button>`).join('');
+    `<button class="tab${k === tab ? ' on' : ''}" data-t="${k}">${t[0]}<b>${k === 'home' ? '' : ALL.filter(p => p.type === k).length}</b></button>`).join('');
   if (META.source) document.getElementById('foot').textContent = T().foot(META);
 }
 
@@ -295,7 +458,12 @@ Promise.all(['data/odm.json', 'data/partners.json', 'data/profiles.json'].map(u 
 });
 document.getElementById('lang').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setLang(b.dataset.l); });
 document.getElementById('tabs').addEventListener('click', e => { const b = e.target.closest('.tab'); if (!b) return; tab = b.dataset.t; chrome(); render(); });
-document.getElementById('grid').addEventListener('click', e => { const c = e.target.closest('.card'); if (c) open(c.dataset.id); });
+document.getElementById('view').addEventListener('click', e => {
+  const go = e.target.closest('[data-go]');
+  if (go) { tab = go.dataset.go; document.getElementById('q').value = ''; chrome(); render(); const sec = go.dataset.sec && document.getElementById('sec-' + go.dataset.sec);
+    (sec || document.body).scrollIntoView({behavior: 'smooth'}); if (!sec) window.scrollTo({top: 0}); return; }
+  const c = e.target.closest('[data-id]'); if (c) open(c.dataset.id);
+});
 document.getElementById('q').addEventListener('input', render);
 document.getElementById('sort').addEventListener('change', render);
 document.getElementById('veil').addEventListener('click', closeD);
